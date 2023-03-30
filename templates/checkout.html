@@ -1,0 +1,96 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .main-banner-fluid {
+    background: black;
+    /* background: linear-gradient(179deg, rgb(2 0 36) 0%, rgb(15 65 136 / 90%) 0%, rgb(27 127 232 / 60%) 100%, rgb(0 212 255 / 87%) 100%), url(../images/wht.svg); */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding: 112px 0px 68px 10px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: invert(1);
+  }
+  label {
+    display: inline-block;
+    margin-left: 53rem;
+    color: white;
+    text-transform: uppercase;
+}
+select {
+    word-wrap: normal;
+    padding: 6px;
+    border-radius: 22px;
+    margin-left: 1rem;
+    color: black;
+    background: bisque;
+}
+.stripe-button-el {
+    visibility: visible;
+    margin-left: 68rem;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 23px;
+}
+.stripe-button-el span {
+    background: orangered;
+    border-radius: 20px;
+}
+</style>
+
+<div class="main-banner-fluid">
+<form action="{% url 'charge' %}" method="POST">
+    {% csrf_token %}
+    <label for="package"><h5>Select package</h5></label>
+    <select id="package" name="package">
+      <option value="basic">Basic Package ($10)</option>
+      <option value="standard">Standard Package ($20)</option>
+      <option value="premium">Premium Package ($30)</option>
+    </select>
+    <script src="https://checkout.stripe.com/checkout.js"
+            data-key="{{ STRIPE_PUBLIC_KEY }}"
+            data-amount="1000"
+            data-name="Infinite DataQuest"
+            data-description="Package Purchase"
+            data-image="{% static 'assets/images/logo.png' %}"
+            data-locale="auto">
+    </script>
+    <input type="hidden" name="stripeToken" value="" /> <!-- Add this line -->
+  </form>
+  <script>
+    var stripe = Stripe('{{ STRIPE_PUBLIC_KEY }}');
+  
+    document.getElementById('checkout-button').addEventListener('click', function(event) {
+      event.preventDefault();
+  
+      stripe.redirectToCheckout({
+        items: [{sku: 'sku_123', quantity: 1}],
+        successUrl: 'https://example.com/success',
+        cancelUrl: 'https://example.com/cancel',
+      })
+      .then(function(result) {
+        if (result.error) {
+          // Handle error
+        } else {
+          document.getElementsByName('stripeToken')[0].value = result.token.id; // Add this line
+          document.getElementsByTagName('form')[0].submit(); // Submit the form
+        }
+      });
+    });
+  </script>
+<script src="https://checkout.stripe.com/checkout.js" 
+class="stripe-button" 
+data-key="pk_live_51MfaL9DoaRCsOM7H6G7qL91BawAnbftGGWzsQhrJsUlEx2mFsCJ5W95skDU6D7vwBxh9ljNltj6rkfNI22b7qvZg00htcaU4Pg" 
+data-amount="1000" 
+data-name="Infinite DataQuest" 
+data-description="Plan Purchase" 
+data-image="{% static 'assets/images/logo.png' %}" 
+data-locale="auto">
+</script>
+</div>
+
+
+{% endblock content %}

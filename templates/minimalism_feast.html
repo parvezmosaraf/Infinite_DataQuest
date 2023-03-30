@@ -1,0 +1,140 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+  h2 {
+    color: White;
+    font-family: poppins;
+  }
+
+  .card-header {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  }
+
+  .mb-0 {
+    margin-bottom: 0 !important;
+    color: black;
+    font-family: poppins;
+    font-weight: 300;
+    font-size: 2.5rem;
+    border-radius: 3rem;
+    padding: 1rem;
+  }
+
+  p {
+    /* font-size: 15px; */
+    line-height: 30px;
+    color: #2a2a2a;
+    font-family: monospace;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-left: 3rem;
+  }
+
+  /* ul,
+  li {
+    line-height: 30px;
+    color: #2a2a2a;
+    font-family: monospace;
+    font-weight: 400;
+    font-size: 1.2rem;
+  } */
+
+  .card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    background: none;
+    font-family: poppins;
+    border-radius: 3rem;
+  }
+
+  .card {
+    border: 0;
+  }
+
+  ul,
+  li {
+    line-height: 30px;
+    color: #2a2a2a;
+    font-family: monospace;
+    font-weight: 400;
+    font-size: 1.2rem;
+    /* margin-left: 1rem; */
+  }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="main-banner">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-lg-8">
+        <div class="top-text header-text">
+          <h2 style="color: yellowgreen; font-family: poppins; font-weight: bold">Data Analysis website Usefulness
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-5">
+  <h2 class="mb-4">Frequently Asked Questions</h2>
+
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+        aria-controls="collapseOne">
+        <h2 class="mb-0">How data visualization and analysis website save time for data science students?</h2>
+      </div>
+
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <p>Data visualization and analysis websites can save time for data science students in several ways. Firstly,
+            these websites provide a user-friendly interface for exploring and analyzing data. Students can easily
+            upload their datasets and visualize them using different types of charts and graphs. This saves time that
+            would otherwise be spent coding and debugging visualization scripts.</p> <hr>
+
+            <p>Additionally, data visualization websites often have built-in statistical analysis tools that can be used to
+            quickly summarize and analyze data. This can be especially helpful for students who are new to data analysis
+            and may not be familiar with statistical techniques or programming languages. </p><hr>
+
+            <p>One example of a data visualization website is Tableau. Tableau is a powerful tool that allows users to
+            create interactive visualizations of their data. Users can easily drag and drop variables onto a canvas and
+            create charts, graphs, and dashboards with just a few clicks. Tableau also has built-in statistical analysis
+            tools, such as trend lines and correlation coefficients, that can be used to quickly identify patterns in
+            data. </p> <hr>
+
+            <p>Another example of a data visualization website is Plotly. Plotly allows users to create interactive
+            visualizations using a variety of programming languages, including Python, R, and MATLAB. Users can create
+            scatterplots, bar charts, and other types of charts and graphs, and can easily customize the appearance of
+            their visualizations using a range of options. </p><hr>
+
+            <p>These tools save time for data science students by allowing them to quickly and easily explore and analyze
+            their data, without the need for extensive coding or programming skills. By using these tools, students can
+            focus on the analysis itself, rather than on the mechanics of visualization or programming. </p> <hr>
+
+            <p> In summary, data visualization and analysis websites provide an easy-to-use interface for exploring and
+            analyzing data. They also offer built-in statistical analysis tools that can save time for students who are
+            new to data analysis. By using these tools, students can focus on the analysis itself, rather than on the
+            mechanics of visualization or programming, ultimately allowing them to save time and become more productive
+            in their work.</p> <hr>
+
+            <img src="https://learn.microsoft.com/en-us/azure/architecture/data-science-process/media/lifecycle/tdsp-lifecycle2.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('.card-header').click(function () {
+      $(this).toggleClass('active').next().slideToggle('fast');
+    });
+  });
+</script>
+{% endblock content %}

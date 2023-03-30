@@ -1,0 +1,205 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+
+<style>
+  h2 {
+    color: White;
+    font-family: poppins;
+  }
+
+  .card-header {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  }
+
+  .mb-0 {
+    margin-bottom: 0 !important;
+    color: black;
+    font-family: poppins;
+    font-weight: 300;
+    font-size: 2.5rem;
+    border-radius: 3rem;
+    padding: 1rem;
+  }
+
+  p {
+    /* font-size: 15px; */
+    line-height: 30px;
+    color: #2a2a2a;
+    font-family: monospace;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-left: 3rem;
+  }
+
+  /* ul,
+  li {
+    line-height: 30px;
+    color: #2a2a2a;
+    font-family: monospace;
+    font-weight: 400;
+    font-size: 1.2rem;
+  } */
+
+  .card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    background: none;
+    font-family: poppins;
+    border-radius: 3rem;
+  }
+
+  .card {
+    border: 0;
+  }
+
+  ul,
+  li {
+    line-height: 30px;
+    color: #2a2a2a;
+    font-family: monospace;
+    font-weight: 400;
+    font-size: 1.2rem;
+    /* margin-left: 1rem; */
+  }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<div class="main-banner">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-lg-8">
+        <div class="top-text header-text">
+          <h2 style="color: yellowgreen; font-family: poppins; font-weight: bold">
+            Dataset Description
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-5">
+  <h2 class="mb-4">Frequently Asked Questions</h2>
+
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+        aria-controls="collapseOne">
+        <h2 class="mb-0">What is Dataset in Machine Learning?</h2>
+      </div>
+
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <p>
+            In machine learning, a dataset is a collection of data that is used
+            to train, test, and validate machine learning models. A dataset
+            typically consists of a set of samples, each of which represents an
+            individual example in the problem domain. In supervised learning, a
+            dataset is typically composed of two parts:</p> <br>
+          <hr>
+          <p>the input data and the
+            output data (also called labels or targets). The input data
+            represents the features or attributes of each sample, while the
+            output data represents the desired output or target value for each
+            sample.</p>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+        aria-controls="collapseTwo">
+        <h2 class="mb-0">Types of Dataset?</h2>
+      </div>
+
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <div class="card-body">
+          <p>
+            There are two main types of datasets in machine learning: <br>
+          </p>
+          <ul>
+            <li>
+              <p>1.Training dataset: This is the dataset that is used to train the machine learning model. The model is
+                trained by optimizing its parameters to minimize the difference between its predictions and the actual
+                outputs in the training dataset.</p>
+            </li><br>
+            <li>
+              <p>2.Test dataset: This is a separate dataset that is used to evaluate the performance of the trained
+                model
+                on unseen data. The test dataset is used to estimate the generalization error of the model, which is the
+                error rate that the model is likely to have when used in the real world.</p>
+            </li><br>
+          </ul>
+          <p>It is important to use high-quality datasets in machine learning, as the quality and quantity of the data
+            can have a significant impact on the performance of the machine learning model. Data preprocessing
+            techniques such as data cleaning, normalization, and feature scaling can also be applied to improve the
+            quality of the dataset and the performance of the model.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" id="headingThree" data-toggle="collapse" data-target="#collapseThree"
+        aria-expanded="false" aria-controls="collapseThree">
+        <h2 class="mb-0">Dataset Collection</h2>
+      </div>
+
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+        <div class="card-body">
+          <ul>
+          <p>
+            There are various ways to collect a dataset in machine learning, depending on the problem domain and the
+            type of data required. Here are some common methods of collecting a dataset: </p><hr>
+
+          <li>
+            <p>Manual data entry: This involves manually entering data into a database or spreadsheet. This method is often
+              used when the data is already available in paper or electronic form, such as survey responses or customer
+              feedback.</p>
+          </li><br>
+          <li>
+            <p>Web scraping: This involves automatically extracting data from websites using specialized software tools.
+              Web scraping can be used to collect large amounts of structured or unstructured data from the internet, such
+              as product reviews, news articles, or social media posts.</p>
+          </li><br>
+          <li>
+            <p>Sensor data collection: This involves collecting data from physical sensors such as cameras, microphones, or
+              accelerometers. This method is often used in fields such as robotics, self-driving cars, or smart homes.</p>
+          </li><br>
+          <li>
+            <p>Public datasets: There are many publicly available datasets that can be used for machine learning, such as
+              the MNIST dataset for image classification or the Iris dataset for classification of flower species. These
+              datasets can be downloaded and used for training and testing machine learning models.</p>
+          </li><br>
+          <li>
+            <p>Data partnerships: This involves partnering with companies or organizations that have access to the desired
+              data. For example, a healthcare company might partner with hospitals to collect medical records for machine
+              learning research.</p>
+          </li><br>
+          <li>
+            <p>Crowdsourcing: This involves soliciting data from a large number of people, often through online platforms
+              such as Amazon Mechanical Turk. Crowdsourcing can be used to collect large amounts of data quickly and
+              inexpensively, but may require careful design and monitoring to ensure data quality.</p>
+          </li><hr>
+        </ul>
+          <p> It is important to ensure that the collected dataset is representative, diverse, and of high quality, as
+            the quality and quantity of the data can have a significant impact on the performance of the machine
+            learning model. Data privacy and ethical considerations should also be taken into account when collecting
+            and using datasets.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $(".card-header").click(function () {
+      $(this).toggleClass("active").next().slideToggle("fast");
+    });
+  });
+</script>
+{% endblock content %}

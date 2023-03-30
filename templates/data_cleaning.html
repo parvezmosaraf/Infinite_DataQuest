@@ -1,0 +1,126 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<title>Upload Dataset</title>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f1f1f1;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 50px;
+        text-transform: uppercase;
+        color: white;
+    }
+
+    .input {
+        width: 50%;
+        margin: auto;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    input[type="file"] {
+        margin-bottom: 20px;
+        margin-left: 31rem;
+        border-radius: 15px;
+        color: chartreuse;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    input,
+    button,
+    select,
+    optgroup,
+    textarea {
+        margin: 0;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        border-radius: 9px;
+        color: linear-gradient(rgb(27, 156, 252), rgb(11, 72, 107));
+
+    }
+
+    input[type="submit"]:hover {
+        background-color: linear-gradient(rgb(27, 156, 252), rgb(11, 72, 107));
+    }
+
+    a {
+        text-decoration: underline;
+        text-align: center;
+        color: linear-gradient(rgb(27, 156, 252), rgb(11, 72, 107));
+        text-transform: uppercase;
+
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 30px;
+        margin-left: 30rem;
+
+    }
+</style>
+
+
+
+<div class="main-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+
+
+
+                <body>
+                    <h1 style="color: white;">Upload Data</h1>
+                    <hr>
+                    <form action="{% url 'cleaning' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="file" name="csv_file">
+                        {% if user.is_authenticated %}
+                        <button type="submit">Submit</button>
+                        {% else %}
+                        <br>
+                        <button style="color: white; padding: 10px; border-radius: 20px; font-family: poppins; margin-left: 31rem; font-size: medium; text-align: center;"><a style="color: #000; font-family: poppins;" href="{% url 'signin' %}"> Sign In or Registration
+                            for Visualize</a></button>
+                        {% endif %}
+                        <!-- <button type="submit">Submit</button> -->
+                    </form>
+                    <br>
+                    <br>
+                    <br>
+                    <h1>Preprocess CSV File</h1>
+                    <hr>
+                    {% if preprocessed_csv %}
+                    <p><a href="{{ preprocessed_csv }}">Download Preprocessed CSV File</a></p>
+                    {% endif %}
+                </body>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock content %}

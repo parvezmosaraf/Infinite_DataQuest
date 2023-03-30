@@ -1,0 +1,157 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+	h2{
+		color: white;
+	}
+
+	.card-header{
+		cursor: pointer;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+	.mb-0 {
+    margin-bottom: 0 !important;
+    color: black;
+    font-family: poppins;
+    font-weight: 300;
+    font-size: 2.5rem;
+    border-radius: 3rem;
+    padding: 1rem;
+}
+p {
+    /* font-size: 15px; */
+    line-height: 30px;
+    color: #2a2a2a;
+    font-family: monospace;
+    font-weight: 400;
+    font-size: 1.2rem;
+	margin-left: 3rem;
+}
+ul, li {
+	line-height: 30px;
+    color: #2a2a2a;
+    font-family: monospace;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+.card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    background: none;
+    font-family: poppins;
+    border-radius: 3rem;
+}
+.card {
+  border: 0;
+}
+
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <div class="main-banner">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-8">
+          <div class="top-text header-text">
+            <h2>Data Visualization - A Useful Tool for Insights</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container my-5">
+    <h2 class="mb-4">Frequently Asked Questions</h2>
+
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <h2 class="mb-0">What is Data Visualization?</h2>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>Data visualization is the graphical representation of data and information. It is used to communicate complex data sets and trends in an easy-to-understand manner. Through the use of charts, graphs, and other visual aids, data visualization allows individuals and organizations to make informed decisions based on the data at hand.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <h2 class="mb-0">Why is Data Visualization Important?</h2>
+        </div>
+
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>Data visualization is important because it allows us to see patterns and trends that may not be apparent from looking at the raw data. By presenting data in a visual format, we can gain insights and make decisions more quickly and effectively. Additionally, data visualization can help us communicate complex ideas and information to others in a way that is easy to understand.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <h2 class="mb-0">What are the Types of Data Visualization?</h2>
+        </div>
+
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>There are many types of data visualization, each with its own strengths and weaknesses. Some common types of data visualization include: Line charts, Bar charts, Pie charts, Scatter plots, Heat maps, Choropleth maps, Tree maps, and Word clouds. The type of visualization chosen will depend on the nature of the data and the insights that need to be gained from it. For example, a line chart is useful for showing trends over time, while a scatter plot is useful for showing the relationship between two variables. A heatmap is useful for showing the distribution of data over a geographic area, while a tree map is useful for visualizing hierarchical data.</p>
+			<h2 class="card-title">Benefits of Data Visualization</h2>
+			<p>Data visualization is a powerful tool for gaining insights from complex data. Here are some of the benefits of data visualization:</p>
+	
+			<ul>
+			  <li>Identifying trends and patterns: Data visualization can help identify patterns and trends that might not be immediately apparent from raw data.</li>
+			  <li>Spotting outliers: Outliers can be easily spotted through visualization, allowing for further investigation.</li>
+			  <li>Communicating insights: Visualization can help communicate insights to others more effectively than raw data.</li>
+			  <li>Enabling data-driven decision-making: By making complex data more accessible, visualization can help organizations make data-driven decisions.</li>
+			  <li>Enhancing understanding: Visualization can help individuals and organizations better understand complex data, leading to better insights and decisions.</li>
+			</ul>
+			<p>Source: <a href="https://datavizcatalogue.com/">Resource</a></p>
+	
+			<h2 class="card-title">Conclusion</h2>
+			<p>Data visualization is a crucial tool for gaining insights from complex data. By choosing the appropriate type of visualization, individuals and organizations can gain a deeper understanding of their data, leading to better insights and decisions. Whether you are a data analyst, business leader, or anyone working with data, data visualization is a skill worth mastering.</p>
+		  </div>
+		</div>
+	  </div>
+	  <div class="card">
+        <div class="card-header" id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <h2 class="mb-0">Types of tools for data visualization?</h2>
+        </div>
+
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+          <div class="card-body">
+            <!-- <p>There are many types of data visualization, each with its own strengths and weaknesses. Some common types of data visualization include: Line charts, Bar charts, Pie charts, Scatter plots, Heat maps, Choropleth maps, Tree maps, and Word clouds. The type of visualization chosen will depend on the nature of the data and the insights that need to be gained from it. For example, a line chart is useful for showing trends over time, while a scatter plot is useful for showing the relationship between two variables. A heatmap is useful for showing the distribution of data over a geographic area, while a tree map is useful for visualizing hierarchical data.</p> -->
+			<h2 class="card-title">Benefits of Data Visualization</h2>
+			<p>There are several types of tools for data visualization, including:</p>
+	
+			<ul>
+			  <li>Spreadsheet software: These tools, such as Microsoft Excel or Google Sheets, can create basic charts and graphs to represent data.</li>
+			  <li>Business Intelligence (BI) tools: These tools, such as Tableau, Power BI, or QlikView, are designed to help users visualize large and complex datasets. They offer a range of visualization options and advanced analytics capabilities.</li>
+			  <li>Data visualization libraries: These libraries, such as D3.js, Plotly, or Matplotlib, provide a set of programming tools and functions for creating interactive and customizable visualizations.</li>
+			  <li>Geographic Information System (GIS) software: These tools, such as ArcGIS or QGIS, are designed specifically for mapping and spatial analysis.</li>
+			  <li>Infographic design tools: These tools, such as Canva or Piktochart, are used to create visually appealing infographics and data-driven graphics.</li>
+			  <li>Data storytelling platforms: These platforms, such as Datawrapper or Flourish, help users create engaging and interactive data visualizations that tell a story.</li>
+			  <li>Augmented Reality (AR) and Virtual Reality (VR) visualization tools: These tools, such as Unity or Unreal Engine, allow users to create immersive visualizations and simulations that can be experienced in AR or VR environments.</li>
+
+			</ul>
+	
+			<h2 class="card-title">Conclusion</h2>
+			<p>Data visualization is a crucial tool for gaining insights from complex data. By choosing the appropriate type of visualization, individuals and organizations can gain a deeper understanding of their data, leading to better insights and decisions. Whether you are a data analyst, business leader, or anyone working with data, data visualization is a skill worth mastering.</p>
+		  </div>
+		</div>
+	  </div>
+	</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+$(document).ready(function(){
+  $('.card-header').click(function(){
+    $(this).toggleClass('active').next().slideToggle('fast');
+  });
+});
+</script>
+{% endblock content %}	

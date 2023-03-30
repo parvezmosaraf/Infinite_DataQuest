@@ -1,0 +1,315 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Bootstrap core CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="stylesheet">
+<style>
+body {
+        background: #f5f5f5;
+    }
+
+    .name {
+        color: #333;
+        font-size: 24px;
+        font-weight: 500;
+        margin-top: 15px;
+    }
+
+    .work {
+        font-weight: bold;
+        font-size: 15px;
+        color: #666;
+    }
+
+    .about span {
+        font-size: 14px;
+        color: #666;
+    }
+
+    .v-profile {
+        color: #333;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    .box {
+        -webkit-box-shadow: 13px 12px 5px -10px rgba(196, 194, 196, 0.72);
+        -moz-box-shadow: 13px 12px 5px -10px rgba(196, 194, 196, 0.72);
+        box-shadow: 13px 12px 5px -10px rgba(196, 194, 196, 0.72);
+        background-color: #fff;
+        padding: 30px;
+        margin-bottom: 30px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .box:hover {
+        -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        transform: translateY(-5px);
+    }
+
+    .col-md-3 {
+        margin-top: 30px;
+    }
+
+    .rounded-right {
+        border-top-right-radius: 40px !important;
+        border-bottom-right-radius: 40px !important;
+    }
+
+    .main-banner-fluid {
+        background-image: url("{% static 'assets/blog/images/banner.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .banner-title {
+        color: #fff;
+        font-size: 48px;}
+
+.banner-subtitle {
+color: #fff;
+font-size: 24px;
+}
+
+.banner-btn {
+background-color: #fff;
+color: #000;
+border: none;
+border-radius: 30px;
+padding: 10px 30px;
+font-size: 18px;
+font-weight: bold;
+transition: all 0.3s ease-in-out;
+}
+
+.banner-btn:hover {
+background-color: #000;
+color: #fff;
+}
+
+/* Make the images responsive */
+.img-responsive {
+max-width: 100%;
+height: auto;
+}
+
+/* Adjust the margin top of each column */
+.col-md-3 {
+margin-top: 30px;
+}
+
+/* Style the "View Profile" links */
+.v-profile {
+color: #fff;
+background-color: #000;
+border: none;
+border-radius: 20px;
+padding: 10px 20px;
+font-size: 14px;
+font-weight: bold;
+text-transform: uppercase;
+transition: all 0.3s ease-in-out;
+}
+
+.v-profile:hover {
+background-color: #fff;
+color: #000;
+}
+
+/* Style the box shadows */
+.box {
+box-shadow: 0 0 20px rgba(0,0,0,0.2);
+transition: all 0.3s ease-in-out;
+}
+
+.box:hover {
+box-shadow: 0 0 40px rgba(0,0,0,0.4);
+}
+
+/* Style the main banner section */
+.main-banner-fluid {
+background-image: url("{% static 'assets/images/team-bg.jpg' %}");
+background-size: cover;
+background-position: center;
+height: 80vh;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 0 30px;
+}
+
+.main-banner-fluid h1,
+.main-banner-fluid h2,
+.main-banner-fluid h3,
+.main-banner-fluid h4,
+.main-banner-fluid h5,
+.main-banner-fluid h6 {
+color: #fff;
+font-weight: bold;
+}
+
+.main-banner-fluid p {
+color: #fff;
+font-size: 18px;
+}
+
+/* Style the team member name and role */
+.name {
+font-size: 24px;
+font-weight: bold;
+margin-top: 20px;
+}
+
+.work {
+font-size: 18px;
+font-weight: bold;
+margin-bottom: 10px;
+}
+
+/* Style the about section */
+.about span {
+font-size: 14px;
+color: #666;
+}
+
+/* Style the container */
+.container {
+margin-top: 50px;
+}
+
+/* Style the page title */
+.page-title {
+font-size: 36px;
+font-weight: bold;
+margin-bottom: 30px;
+}
+
+/* Style the page subtitle */
+.page-subtitle {
+font-size: 24px;
+margin-bottom: 50px;
+}
+
+/* Style the team member profile section */
+.member-profile {
+margin-top: 50px;
+}
+
+.member-profile img {
+border-radius: 50%;
+margin-bottom: 30px;
+}
+
+.member-profile h3 {
+font-size: 24px;
+font-weight: bold;
+margin-top: 20px;
+}
+
+.member-profile h4 {
+font-size: 18px;
+font-weight: bold;
+margin-top: 10px;
+}
+
+.member-profile p {
+font-size: 14px;
+margin-top: 10px;
+line-height: 1.5;
+}
+
+/* Style the social media icons */
+.social-icons {
+margin-top: 30px;
+display: flex;
+justify-content: center;
+}
+
+.social-icons a {
+color: #333;
+font-size: 24px;
+margin: 0 10px;
+transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+color: #0077b5;
+}
+
+
+</style>
+    
+<div class="main-banner-fluid">
+    <div class="container text-center mt-5 mb-2">
+        <h1 class="mb-0">Meet our Team</h1>
+    </div>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="bg-white p-3 text-center rounded box"><img class="img-responsive rounded-circle"
+                        src="{% static 'assets/blog/images/img-5.png' %}" width="100">
+                    <h5 class="mt-3 name">Paul Zamor</h5><span class="work d-block"> CEO/Co-founder</span><span
+                        class="work d-block">Developers World LLC</span>
+                    <div class="mt-4 about"><span>CEO oversees, sets vision; co-founder co-starts, .&nbsp; shares
+                            responsibility, drives success.</span></div>
+                    <div class="mt-4">
+                        <h6 class="v-profile">View Profile</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="bg-white p-3 text-center rounded box"><img class="img-responsive rounded-circle"
+                        src="{% static 'assets/blog/images/img-k.png' %}" width="100">
+                    <h5 class="mt-3 name">Kerby Edme</h5><span class="work d-block">CIO/Co-founder</span><span
+                        class="work d-block">Developers World LLC</span>
+                    <div class="mt-4 about"><span>Provide strategic direction, and ensure that technology is leveraged
+                            &nbsp; to help the company achieve its goals.</span></div>
+                    <div class="mt-4">
+                        <h6 class="v-profile">View Profile</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="bg-white p-3 text-center rounded box"><img class="img-responsive rounded-circle"
+                        src="{% static 'assets/blog/images/img-me.png' %}" width="100">
+                    <h5 class="mt-3 name">Parvez Mosaraf</h5><span class="work d-block">Full Stack & Data
+                        Scientist</span><span class="work d-block">Developers World LLC</span>
+                    <div class="mt-4 about"><span>A developer can do anything with his coding knowledge&nbsp; and also a
+                            developer can make your idea in real.</span></div>
+                    <div class="mt-4">
+                        <h6 class="v-profile">View Profile</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="bg-white p-3 text-center rounded box"><img class="img-responsive rounded-circle"
+                        src="{% static 'assets/blog/images/img-l.png' %}" width="100">
+                    <h5 class="mt-3 name">Steve Goimbert</h5><span class="work d-block">Marketing</span><span
+                        class="work d-block">Developers World LLC</span>
+                    <div class="mt-4 about"><span>Marketing is one of the crucial step for&nbsp; any kind of startup
+                            company and make the company well knowned.</span></div>
+                    <div class="mt-4">
+                        <h6 class="v-profile">View Profile</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+

@@ -1,0 +1,98 @@
+
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Help and Support</title>
+    <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    
+    body {
+      margin: 0;
+    }
+    
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    
+    section {
+      background-color: #f5f5f5;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      flex-basis: calc(50% - 40px);
+      margin: 20px;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+    
+    a {
+      color: #333;
+      display: inline-block;
+      font-size: 18px;
+      margin-top: 10px;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    a:hover {
+      color: #007bff;
+    }
+  </style>
+  </head>
+  <body>
+    <header>
+      <h1>Help and Support</h1>
+    </header>
+    <main>
+      <section class="card">
+        <h2>FAQs</h2>
+        <p>Find answers to frequently asked questions.</p>
+        <a href="{% url 'faq' %}">Read More &rarr;</a>
+      </section>
+      <section class="card">
+        <h2>Contact Us</h2>
+        <p>Get in touch with our support team.</p>
+        <a href="{% url 'contact' %}">Read More &rarr;</a>
+      </section>
+      <section class="card">
+        <h2>Tutorials</h2>
+        <p>Learn how to use our product with our video tutorials.</p>
+        <a href="#">Read More &rarr;</a>
+      </section>
+      <section class="card">
+        <h2>Community</h2>
+        <p>Join our community and connect with other users.</p>
+        <a href="{% url 'terms_condition' %}">Read More &rarr;</a>
+      </section>
+    </main>
+  </body>
+</html>
+
+    
+{% endblock content %}

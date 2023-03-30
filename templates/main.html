@@ -1,0 +1,370 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <title>Visualize Your Data</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/templatemo-plot-listing.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/animated.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!--
+
+TemplateMo 564 Plot Listing
+
+https://templatemo.com/tm-564-plot-listing
+
+-->
+
+  <style>
+    .main-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .background-header .main-nav {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .logo-area {
+      width: 200px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-main-title {
+      color: white;
+    }
+
+    .logo-orange-title {
+      color: rgb(238, 52, 56);
+    }
+
+    /* {% comment %} .header-area.header-sticky .main-nav .logo-main-title{
+    color: black;
+  } {% endcomment %} */
+    .logo-area img {
+      width: 50px;
+    }
+
+    /* {% comment %} .header-area .main-nav .nav li:last-child a{
+  background: linear-gradient(rgb(89, 175, 215), rgb(65, 75, 156)) !important;
+  color: white;
+  border: 0 !important;
+} {% endcomment %} */
+    .user-area {
+      font-size: 30px !important;
+    }
+
+    .dropdown .dropdown-menu {
+      border-color: transparent;
+      background: transparent;
+    }
+
+    .dropdown:hover>.dropdown-menu {
+      display: block;
+    }
+
+    .dropdown>.dropdown-toggle:active {
+      /*Without this, clicking will make it sticky*/
+      pointer-events: none;
+    }
+
+    .header-area .main-nav .nav li.fist-item {
+      padding-left: 0;
+    }
+
+    .header-area .main-nav .nav li.fist-item a {
+      color: white !important;
+    }
+
+    li.dropdown .btn:focus {
+      box-shadow: 0 !important;
+    }
+
+
+    .menu-1 {
+      background-color: transparent;
+      width: 300px;
+      padding-left: 19px;
+      border-color: transparent;
+    }
+
+  </style>
+
+
+</head>
+
+<body>
+
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+
+            <div class="logo-area" style="width: 250px; height: 100px; float: left; margin-top: -14px;"
+              class="new-logo">
+              <img src="{% static 'assets/images/logo.png' %}" alt="">
+              <span class="logo-main-title fw-bold"> Infinite Data<span class='logo-orange-title'>Q</span>uest </span>
+            </div>
+
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li><a href="{% url 'home' %}" class="home">Home</a></li>
+              <li><a href="{% url 'visualize_page' %}" class="home">Visualize</a></li>
+
+
+
+
+
+
+              <li class="dropdown">
+                <button class="btn outline-0 dropdown-toggle" type="button" id="dropdownMenuButton"
+                  data-mdb-toggle="dropdown" aria-expanded="false">
+                  <span style="color: white;">DATA</span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                  <li class="menu"><a class="menu-1" href="{% url 'data_process' %}">Pre-process</a></li>
+                  <li class="menu"><a class="menu-1" href="{% url 'data_cleaning' %}">Cleaning</a></li>
+                </ul>
+              </li>
+
+
+
+
+
+
+
+
+
+              <li><a href="{% url 'ocr' %}" class="ocr">OCR</a></li>
+              <li><a href="{% url 'pricing' %}" class="pricing">Package</a></li>
+              <li><a href="{% url 'contact' %}" class="contact-us">Contact Us</a></li>
+              <li><a href="{% url 'services' %}" class="services">Service</a></li>
+
+
+              <li class="dropdown">
+                <button class="btn outline-0 dropdown-toggle" type="button" id="dropdownMenuButton"
+                  data-mdb-toggle="dropdown" aria-expanded="false">
+                  <span class="text-white">
+                    <i class="user-area fa-solid fa-user"></i>
+                  </span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                  {% if user.is_authenticated %}
+                  <li class="fist-item"><a class="dropdown-item">Welcome {{ user.get_full_name }}</a></li>
+                  <div class="main-white-button"><a href="{% url 'signout' %}">Sign OUT</a></div>
+                  {% else %}
+                  <li class="fist-item"><a class="dropdown-item" href="{% url 'signin' %}">Login</a></li>
+                  {% endif %}
+                  <li class="fist-item"><a class="dropdown-item" href="{% url 'signup' %}">Sign Up</a></li>
+
+                </ul>
+              </li>
+
+
+
+
+
+              {% comment %} <li class="login-area">
+                {% if user.is_authenticated %}
+              <li><a class="contact-us">Welcome {{ user.get_full_name }}</a></li>
+              <div class="main-white-button"><a href="{% url 'signout' %}">Sign OUT</a></div>
+              {% else %}
+              <div class="main-white-button"><a href="{% url 'signin' %}"><i class="fa fa-plus"></i>Login</a></div>
+              {% endif %}
+              </li> {% endcomment %}
+
+            </ul>
+            <a class='menu-trigger'>
+              <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+
+
+
+
+
+  {% block content %}
+
+
+
+
+
+
+  {% endblock content %}
+
+  <footer class="footer-02 border-0">
+    <div class="mt-5 pt-1">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-lg-5">
+            <div class="row">
+              <div class="col-md-12 col-lg-8 mb-md-0 mb-4">
+                <img class="w-25" src="{% static 'assets/images/logo.png' %}" alt="Infinity DataQuest">
+                <div>Infinite DataQuest is a powerful and intuitive data analysis tool that allows users to easily
+                  visualize their datasets in just a few simple steps.</div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-9 col-lg-7">
+            <div class="row">
+              <div class="col-md-3 mb-md-0 mb-4 border-left">
+                <h2 class="footer-heading">Discover</h2>
+                <ul class="list-unstyled">
+                  <li><a href="{% url 'pricing' %}" class="py-1 d-block">Package</a></li>
+                  <li><a href="{% url 'terms_condition' %}" class="py-1 d-block">Terms &amp; Condition</a></li>
+                  <li><a href="{% url 'chat_form' %}" class="py-1 d-block">ChatBot</a></li>
+                  <li><a href="{% url 'support' %}" class="py-1 d-block">Help &amp; Support</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3 mb-md-0 mb-4 border-left">
+                <h2 class="footer-heading">About</h2>
+                <ul class="list-unstyled">
+                  <li><a href="{% url 'services' %}" class="py-1 d-block">Services</a></li>
+                  <li><a href="{% url 'team' %}" class="py-1 d-block">Team</a></li>
+                  <li><a href="{% url 'blog' %}" class="py-1 d-block">Blog</a></li>
+                </ul>
+              </div>
+              <div class="col-md-6 mb-md-0 mb-4 border-left">
+
+                <h2 class="footer-heading">Subcribe</h2>
+                <form action="#" class="subscribe-form">
+                  <div class="form-group d-flex">
+                    <input type="text" class="form-control rounded-left" placeholder="Enter email address">
+                    <button type="submit" class="form-control submit rounded-right"><span
+                        class="text-white">Submit</span></button>
+                  </div>
+                </form>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row partner-wrap mt-5">
+        <div class="col-md-12">
+          <div class="row align-items-center">
+
+            <div class="col">
+
+
+              <section class="bg-dark text-center text-white">
+                <!-- Grid container -->
+                <div class="container p-4 pb-0">
+                  <!-- Section: Social media -->
+                  <section class="mb-3">
+                    <!-- Facebook -->
+                    <a class="btn btn-outline-light btn-floating m-1 btn-rounded-area" target="_blank"
+                      href="https://www.facebook.com/infinitedataquest?mibextid=ZbWKwL" role="button"><i
+                        class="fa-brands fa-facebook-f"></i></i></a>
+
+                    <!-- Twitter -->
+                    <a class="btn btn-outline-light btn-floating m-1 btn-rounded-area" target="_blank"
+                      href="https://twitter.com/InDataquest?t=Wp2_ZRiyKYb9didL3BAcfA&s=09" role="button"><i
+                        class="fab fa-twitter"></i></a>
+
+                    <!-- Google -->
+                    <a class="btn btn-outline-light btn-floating m-1 btn-rounded-area" href="#!" role="button"><i
+                        class="fab fa-google"></i></a>
+
+                    <!-- Instagram -->
+                    <a class="btn btn-outline-light btn-floating m-1 btn-rounded-area" target="_blank"
+                      href="https://instagram.com/infinitedataquest?igshid=ZDdkNTZiNTM=" role="button"><i
+                        class="fab fa-instagram"></i></a>
+
+                    <!-- Linkedin -->
+                    <a class="btn btn-outline-light btn-floating m-1 btn-rounded-area" target="_blank"
+                      href="https://www.linkedin.com/showcase/infinite-dataquest/" role="button"><i
+                        class="fab fa-linkedin-in"></i></a>
+                  </section>
+                  <!-- Section: Social media -->
+                </div>
+                <!-- Grid container -->
+
+                <!-- Copyright -->
+                <div class="copyright">
+                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                  Copyright &copy;
+                  <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made
+                  with <i class="ion-ios-heart" aria-hidden="true"></i> by <a href="#" target="_blank">Infinite
+                    DataQuest</a>
+                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </div>
+
+              </section>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+  </footer>
+
+
+  <!-- Scripts -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+  <script src="{% static 'assets/js/animation.js' %}"></script>
+  <script src="{% static 'assets/js/imagesloaded.js' %}"></script>
+  <script src="{% static 'assets/js/custom.js' %}"></script>
+
+</body>
+
+</html>

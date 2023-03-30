@@ -1,0 +1,194 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+  .input {
+    margin-top: 15px;
+
+  }
+
+  .home {
+    color: rgb(172, 172, 172);
+  }
+
+  .btn-file {
+    position: relative;
+    border: 0;
+    outline: 0;
+    overflow: hidden;
+    background: linear-gradient(rgb(27, 156, 252), rgb(11, 72, 107));
+    padding: 10px 40px;
+    margin-left: 80%;
+    border-radius: 50px;
+    margin-bottom: 10px;
+  }
+
+  .btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+  }
+
+  .upload-btn {
+    background: linear-gradient(rgb(27, 156, 252), rgb(11, 72, 107));
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 8px 15px;
+    margin-left: auto;
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+    font-family: Poppins;
+  }
+
+  .upload-btn:hover {
+    background: linear-gradient(rgb(27, 156, 252), rgb(11, 72, 107));
+    transform: scale(1.05);
+  }
+
+  .upload-choose-area {
+    border-radius: 19px;
+    background-color: rgb(255 255 255 / 30%);
+    padding: 19px;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding: 50px 100px;
+    font-family: Poppins;
+  }
+
+  .show-img-res {
+    width: 80%;
+    margin: 2.5rem auto;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+  }
+</style>
+
+
+<script>
+
+  document.getElementById('choose-btn').addEventListener('click', function (e) {
+    console.log(e.target)
+
+
+
+    const imageUpload = document.getElementById('imageUpload');
+    const augmentation = document.getElementById('augmentation');
+    const validation = document.getElementById('validation');
+
+    imageUpload.addEventListener('change', () => {
+      const file = imageUpload.files[0];
+      const reader = new FileReader();
+      reader.onload = async () => {
+        const image = new Image();
+        image.src = reader.result;
+        image.onload = async () => {
+          let tensor = tf.browser.fromPixels(image);
+
+          if (augmentation.checked) {
+            // Apply data augmentation to the image tensor
+            tensor = tf.image.randomCrop(tensor, [224, 224]);
+            tensor = tf.image.randomBrightness(tensor, 0.5);
+            // Add more data augmentation techniques as needed
+          }
+
+          if (validation.checked) {
+            // Apply data validation to the image tensor
+            if (tensor.shape[2] !== 3) {
+              alert('Invalid image: must have 3 color channels');
+              return;
+            }
+            if (tensor.dtype !== 'float32') {
+              alert('Invalid image: must be a float32 tensor');
+              return;
+            }
+            // Add more data validation checks as needed
+          }
+
+          // Do something with the processed image tensor
+          // For example, send it to a server for further processing
+        };
+      };
+      reader.readAsDataURL(file);
+    });
+  })
+
+
+</script>
+
+<div class="main-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="top-text header-text">
+          <h1 class="text-white mb-3">Preprocess Your Dataset for Train Test Split</h1>
+          <p class="text-white">Upload your CSV file and let our image preprocessing tool handle the rest.</p>
+        </div>
+      </div>
+      <div class="col-lg-12 mt-5">
+        <div class="card p-4 shadow-lg rounded">
+          <h2 class="mb-4">Preprocess CSV File</h2>
+          <hr>
+          <form action="{% url 'preprocess_csv' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="csv_file">Upload CSV file:</label><br>
+              <div class="custom-file">
+                <input type="file" name="csv_file" class="custom-file-input" id="csv_file">
+                <label class="custom-file-label" for="csv_file">Choose file</label>
+              </div>
+            </div>
+            <div class="form-group mt-4">
+              {% if user.is_authenticated %}
+              <button type="submit" class="btn btn-primary">Preprocess</button>
+              {% else %}
+              <br>
+              <button
+                style="color: white; padding: 10px; border-radius: 20px; font-family: poppins; margin-left: 31rem; font-size: medium; text-align: center;"><a
+                  style="color: #000; font-family: poppins;" href="{% url 'signin' %}"> Sign In or Registration
+                  for Visualize</a></button>
+              {% endif %}
+            </div>
+          </form>
+
+          {% if preprocessed_csvs %}
+          <div class="mt-5">
+            <h3 class="mb-3">Preprocessed CSV Files:</h3>
+            <div class="d-flex justify-content-between">
+              <a href="{{ preprocessed_csvs.0 }}" class="btn btn-success" download>Download Train CSV</a>
+              <a href="{{ preprocessed_csvs.1 }}" class="btn btn-success" download>Download Test CSV</a>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
+
+{% endblock content %}

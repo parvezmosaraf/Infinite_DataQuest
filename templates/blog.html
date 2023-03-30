@@ -1,0 +1,586 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+    <!-- site metas -->
+    <title>infinite-dataquest</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- bootstrap css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'assets/blog/css/bootstrap.min.css' %}"
+    />
+    <!-- style css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'assets/blog/css/style.css' %}"
+    />
+    <!-- Responsive-->
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/blog/css/responsive.css' %}"
+    />
+    <!-- fevicon -->
+    <link
+      rel="icon"
+      href="{% static 'assets/blog/images/fevicon.png' %}"
+      type="image/gif"
+    />
+    <!-- Scrollbar Custom CSS -->
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/blog/css/jquery.mCustomScrollbar.min.css' %}"
+    />
+    <!-- Tweaks for older IEs-->
+    <link
+      rel="stylesheet"
+      href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+    />
+    <!-- owl stylesheets -->
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/blog/css/owl.carousel.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/blog/css/owl.theme.default.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+      media="screen"
+    />
+
+    <style>
+      img {
+        margin-bottom: -3px;
+        width: auto;
+        overflow: hidden;
+      }
+
+      .footer-02 .subscribe-form .form-group .submit {
+        width: 100px;
+      }
+
+      .rounded-right {
+        border-top-right-radius: 40px !important;
+        border-bottom-right-radius: 40px !important;
+      }
+      .main-banner {
+        background: black;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        padding: 290px 0px 180px 0px;
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: invert(1);
+      }
+      .most_text {
+        width: 100%;
+        float: left;
+        font-size: 32px;
+        color: white;
+        padding-top: 20px;
+        font-weight: bold;
+      }
+      .lorem_text {
+        width: 100%;
+        float: left;
+        font-size: 16px;
+        color: white;
+        margin: 0px;
+      }
+      .read_bt a {
+        font-size: 18px;
+        color: chocolate;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- header section start -->
+    <div class="main-banner">
+      <div class="header_section">
+        <div class="container-fluid header_main"></div>
+        <!-- banner section start -->
+        <div class="container-fluid">
+          <div class="banner_section layout_padding">
+            <h1 class="banner_taital">welcome <br />our blog</h1>
+            <div id="my_slider" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="image_main">
+                    <div class="container">
+                      <img
+                        src="{% static 'assets/blog/images/img-1.png' %}"
+                        class="image_1"
+                      />
+                      <div class="contact_bt">
+                        <a href="{% url 'contact' %}">Contact Us</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="image_main">
+                    <div class="container">
+                      <img
+                        src="{% static 'assets/blog/images/img-1.png' %}"
+                        class="image_1"
+                      />
+                      <div class="contact_bt">
+                        <a href="{% url 'contact' %}">Contact Us</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="image_main">
+                    <div class="container">
+                      <img
+                        src="{% static 'assets/blog/images/img-1.png' %}"
+                        class="image_1"
+                      />
+                      <div class="contact_bt">
+                        <a href="{% url 'contact' %}">Contact Us</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a
+                class="carousel-control-prev"
+                href="#my_slider"
+                role="button"
+                data-slide="prev"
+              >
+                <i class="fa fa-angle-left"></i>
+              </a>
+              <a
+                class="carousel-control-next"
+                href="#my_slider"
+                role="button"
+                data-slide="next"
+              >
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- banner section end -->
+      </div>
+      <!-- header section end -->
+      <div class="container">
+        <div class="touch_setion">
+          <div class="box_main">
+            <div class="image_2 active">
+              <h4 class="who_text active">
+                <a href="{% url 'home' %}"> Who am i</a>
+              </h4>
+            </div>
+          </div>
+          <div class="box_main">
+            <div class="image_3">
+              <h4 class="who_text">
+                <a href="{% url 'services' %}"> Get In Touch</a>
+              </h4>
+            </div>
+          </div>
+          <div class="box_main">
+            <div class="image_4">
+              <h4 class="who_text">
+                <a
+                  href="https://www.facebook.com/infinitedataquest?mibextid=ZbWKwL"
+                ></a>
+                Facebook
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- about section start -->
+      <div class="about_section layout_padding">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-sm-12">
+              <div class="about_img">
+                <img src="{% static 'assets/blog/images/about-img.png' %}" />
+              </div>
+              <div class="like_icon">
+                <img src="{% static 'assets/blog/images/like-icon.png' %}" />
+              </div>
+              <p class="post_text">Post By : 09/02/2023</p>
+              <h2 class="most_text">
+                Most Awesome Blue Lake With Snow <br />Mountain
+              </h2>
+              <p class="lorem_text">
+                Mountains are majestic and awe-inspiring natural wonders that
+                have captivated humans for centuries. They are formed by the
+                movement of tectonic plates and can be found all over the world,
+                from the towering peaks of the Himalayas to the rugged ranges of
+                the Rocky Mountains. Mountains are not only beautiful to look
+                at, but they also play an important role in our ecosystem. They
+                are home to a diverse range of flora and fauna, many of which
+                are unique to mountainous regions. Mountains also act as a
+                natural barrier, protecting low-lying areas from extreme weather
+                conditions such as hurricanes and tornadoes.
+              </p>
+              <div class="social_icon_main">
+                <div class="social_icon">
+                  <ul>
+                    <li>
+                      <a
+                        href="https://www.facebook.com/infinitedataquest?mibextid=ZbWKwL"
+                        ><img
+                          src="{% static 'assets/blog/images/fb-icon.png' %}"
+                      /></a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://twitter.com/InDataquest?t=Wp2_ZRiyKYb9didL3BAcfA&s=09"
+                        ><img
+                          src="{% static 'assets/blog/images/twitter-icon.png' %}"
+                      /></a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://instagram.com/infinitedataquest?igshid=ZDdkNTZiNTM="
+                        ><img
+                          src="{% static 'assets/blog/images/instagram-icon.png' %}"
+                      /></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+              <div class="image_5">
+                <img src="{% static 'assets/blog/images/img-5.png' %}" />
+              </div>
+              <h1 class="about_taital">About Us</h1>
+              <p class="about_text">
+                A data visualization website is a platform that allows users to
+                create and share visual representations of data. These
+                visualizations can take many forms, including charts, graphs,
+                maps, and infographics. The purpose of data visualization is to
+                make complex data more accessible and understandable to a wider
+                audience. By presenting data in a visual format, users can
+                quickly identify patterns, trends, and relationships that might
+                not be immediately apparent in a table or spreadsheet
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- about section end -->
+      <!-- blog section start -->
+      <div class="about_section layout_padding">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-sm-12">
+              <div class="about_img">
+                <img src="{% static 'assets/blog/images/img-8.png' %}" />
+              </div>
+              <div class="like_icon">
+                <img src="{% static 'assets/blog/images/like-icon.png' %}" />
+              </div>
+              <p class="post_text">Post By : 09/06/2019</p>
+              <h2 class="most_text">
+                Most Awesome Blue Lake With Snow <br />River
+              </h2>
+              <p class="lorem_text">
+                One of the most breathtaking sights in the world is a blue lake
+                surrounded by snow-capped mountains. The contrast between the
+                deep blue water and the white snow is simply stunning. The most
+                awesome blue lake with snow is arguably Lake Tekapo in New
+                Zealand. Located in the Southern Alps, this glacial lake is fed
+                by the surrounding mountains and has a unique turquoise color.
+                In the winter, the mountains are covered in snow, creating a
+                picturesque scene that attracts visitors from all over the
+                world. The lake is also a popular spot for stargazing, as it is
+                located in a dark sky reserve with minimal light pollution. A
+                visit to Lake Tekapo is a must for anyone who loves natural
+                beauty and outdoor adventures.
+              </p>
+              <div class="social_icon_main">
+                <div class="social_icon">
+                  <ul>
+                    <li>
+                      <a
+                        href="https://www.facebook.com/infinitedataquest?mibextid=ZbWKwL"
+                        ><img
+                          src="{% static 'assets/blog/images/fb-icon.png' %}"
+                      /></a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://twitter.com/InDataquest?t=Wp2_ZRiyKYb9didL3BAcfA&s=09"
+                        ><img
+                          src="{% static 'assets/blog/images/twitter-icon.png' %}"
+                      /></a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://instagram.com/infinitedataquest?igshid=ZDdkNTZiNTM="
+                        ><img
+                          src="{% static 'assets/blog/images/instagram-icon.png' %}"
+                      /></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="read_bt">
+                  <a
+                    href="https://www.planetware.com/florida/best-lakes-in-florida-us-fl-445.htm"
+                    >Read More</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+              <div class="about_main">
+                <h1 class="follow_text">CONNECT & FOLLOW</h1>
+                <div class="follow_icon">
+                  <ul>
+                    <li>
+                      <a
+                        href="https://www.facebook.com/infinitedataquest?mibextid=ZbWKwL"
+                        ><img
+                          src="{% static 'assets/blog/images/fb-icon.png' %}"
+                      /></a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://twitter.com/InDataquest?t=Wp2_ZRiyKYb9didL3BAcfA&s=09"
+                        ><img
+                          src="{% static 'assets/blog/images/twitter-icon.png' %}"
+                      /></a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://instagram.com/infinitedataquest?igshid=ZDdkNTZiNTM="
+                        ><img
+                          src="{% static 'assets/blog/images/instagram-icon.png' %}"
+                      /></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- blog section end -->
+      <!-- newsletter section start -->
+      <div class="about_section layout_padding">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-sm-12">
+              <div class="about_img">
+                <img src="{% static 'assets/blog/images/img-9.png' %}" />
+              </div>
+              <div class="like_icon">
+                <img src="{% static 'assets/blog/images/like-icon.png' %}" />
+              </div>
+              <p class="post_text">Post By : 09/06/2019</p>
+              <h2 class="most_text">
+                Most Awesome Blue Lake With Snow <br />sky
+              </h2>
+              <p class="lorem_text">
+                The most awesome blue lake with snow is a breathtaking sight to
+                behold. The crystal-clear blue water of the lake contrasts
+                beautifully with the white snow-capped mountains in the
+                background. The serene and tranquil atmosphere of the lake is
+                enhanced by the snow-covered trees and rocks that surround it.
+                The reflection of the mountains and trees on the lake's surface
+                creates a stunning visual effect that is truly mesmerizing. The
+                blue lake with snow is a perfect destination for nature lovers
+                and photographers who want to capture the beauty of nature at
+                its finest. It is a place where one can escape the hustle and
+                bustle of city life and immerse themselves in the peacefulness
+                of nature.
+              </p>
+              <div class="social_icon_main">
+                <div class="social_icon">
+                  <ul>
+                    <li>
+                      <a
+                        href="https://www.facebook.com/infinitedataquest?mibextid=ZbWKwL"
+                        ><img
+                          src="{% static 'assets/blog/images/fb-icon.png' %}"
+                      /></a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://twitter.com/InDataquest?t=Wp2_ZRiyKYb9didL3BAcfA&s=09"
+                        ><img
+                          src="{% static 'assets/blog/images/twitter-icon.png' %}"
+                      /></a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://instagram.com/infinitedataquest?igshid=ZDdkNTZiNTM="
+                        ><img
+                          src="{% static 'assets/blog/images/instagram-icon.png' %}"
+                      /></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="read_bt">
+                  <a
+                    href="https://vacationidea.com/florida/best-florida-lakes.html"
+                    >Read More</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- newsletter section end -->
+      <!-- recent section start -->
+      <div class="about_section layout_padding">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-sm-12">
+              <div class="about_img">
+                <img src="{% static 'assets/blog/images/img-10.png' %}" />
+              </div>
+              <div class="like_icon">
+                <img src="{% static 'assets/blog/images/like-icon.png' %}" />
+              </div>
+              <p class="post_text">Post By : 09/06/2019</p>
+              <h2 class="most_text">
+                Most Awesome Blue Lake With Snow <br />foreste
+              </h2>
+              <p class="lorem_text">
+                The blue lake with snow is a perfect destination for nature
+                lovers and photographers who want to capture the beauty of
+                nature at its finest. It is a place where one can escape the
+                hustle and bustle of city life and immerse themselves in the
+                peacefulness of nature.
+              </p>
+
+              <div class="social_icon_main">
+                <div class="social_icon">
+                  <ul>
+                    <li>
+                      <a
+                        href="https://www.facebook.com/infinitedataquest?mibextid=ZbWKwL"
+                        ><img
+                          src="{% static 'assets/blog/images/fb-icon.png' %}"
+                      /></a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://twitter.com/InDataquest?t=Wp2_ZRiyKYb9didL3BAcfA&s=09"
+                        ><img
+                          src="{% static 'assets/blog/images/twitter-icon.png' %}"
+                      /></a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://instagram.com/infinitedataquest?igshid=ZDdkNTZiNTM="
+                        ><img
+                          src="{% static 'assets/blog/images/instagram-icon.png' %}"
+                      /></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="read_bt">
+                  <a
+                    href="https://www.travelandleisure.com/trip-ideas/nature-travel/americas-most-beautiful-lakes"
+                    >Read More</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+              <div class="newsletter_main">
+                <h1 class="recent_taital">Recent post</h1>
+                <div class="recent_box">
+                  <div class="recent_left">
+                    <div class="image_6">
+                      <img src="{% static 'assets/blog/images/img-6.png' %}" />
+                    </div>
+                  </div>
+                  <div class="recent_right">
+                    <h3 class="consectetur_text">Consectetur adipiscing</h3>
+                    <p class="dolor_text">
+                      ipsum dolor sit amet, consectetur adipiscing
+                    </p>
+                  </div>
+                </div>
+                <div class="recent_box">
+                  <div class="recent_left">
+                    <div class="image_6">
+                      <img src="{% static 'assets/blog/images/img-7.png' %}" />
+                    </div>
+                  </div>
+                  <div class="recent_right">
+                    <h3 class="consectetur_text">Consectetur adipiscing</h3>
+                    <p class="dolor_text">
+                      ipsum dolor sit amet, consectetur adipiscing
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- recent section end -->
+      <!-- tag section start -->
+      <div class="tag_section layout_padding">
+        <div class="container">
+          <h1 class="tag_taital">Tag</h1>
+          <div class="tag_bt">
+            <ul>
+              <li class="active"><a href="#">DATA</a></li>
+              <li><a href="#">TRAVELLING</a></li>
+              <li><a href="#">NATURE</a></li>
+              <li><a href="#">Consectetur</a></li>
+              <li><a href="#">Consectetur</a></li>
+            </ul>
+          </div>
+          <div class="tag_bt_2">
+            <ul>
+              <li><a href="#">Tetur</a></li>
+              <li><a href="#">Conse</a></li>
+              <li><a href="#">Nsectetur</a></li>
+              <li><a href="#">Sectetur</a></li>
+              <li><a href="#">Consectetur</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- tag section end -->
+    <!-- Javascript files-->
+    <script src="{% static 'assets/blog/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/blog/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/blog/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/blog/js/jquery-3.0.0.min.js' %}"></script>
+    <script src="{% static 'assets/blog/js/plugin.js' %}"></script>
+    <!-- sidebar -->
+    <script src="{% static 'assets/blog/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <script src="{% static 'assets/blog/js/custom.js' %}"></script>
+    <!-- javascript -->
+    <script src="{% static 'assets/blog/js/owl.carousel.js' %}"></script>
+    <script src="{% static 'assets/blog/https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js' %}"></script>
+  </body>
+</html>
+
+{% endblock content %}

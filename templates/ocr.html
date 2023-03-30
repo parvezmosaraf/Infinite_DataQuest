@@ -1,0 +1,60 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>OCR Result</title>
+    <style>
+
+.main-banner-fluid {
+            /* background-repeat: no-repeat; */
+            background: darkslateblue;
+            /* background-size: cover; */
+            background-position: center;
+            /* height: 100vh; */
+            /* display: flex; */
+            justify-content: center;
+            align-items: center;
+            padding: 86px 3px 186px 0px;
+        }
+        .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.title {
+    text-align: center;
+    font-size: 40px;
+    color: white;
+}
+
+.text-container {
+    border: 1px solid aliceblue;
+    padding: 20px;
+}
+
+.text {
+    font-size: 20px;
+    line-height: 1.5;
+    color: aliceblue;
+}
+
+    </style>
+</head>
+<body>
+    <div class="main-banner">
+    <div class="container">
+        <h1 class="title">OCR Result:</h1>
+        <div class="text-container">
+            <p class="text">{{ text }}</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+{% endblock content %}

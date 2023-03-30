@@ -1,0 +1,350 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+  h2 {
+    color: White;
+    font-family: poppins;
+  }
+
+  .card-header {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  }
+
+  .mb-0 {
+    margin-bottom: 0 !important;
+    color: black;
+    font-family: poppins;
+    font-weight: 300;
+    font-size: 2.5rem;
+    border-radius: 3rem;
+    padding: 1rem;
+  }
+
+  p {
+    /* font-size: 15px; */
+    line-height: 30px;
+    color: #2a2a2a;
+    font-family: monospace;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-left: 3rem;
+  }
+
+  .card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    background: none;
+    font-family: poppins;
+    border-radius: 3rem;
+  }
+
+  .card {
+    border: 0;
+  }
+
+  ul,
+  li {
+    line-height: 30px;
+    color: #2a2a2a;
+    font-family: monospace;
+    font-weight: 400;
+    font-size: 1.2rem;
+    /* margin-left: 1rem; */
+  }
+
+  .snippet-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .snippet-tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .snippet-tab {
+    background-color: #f2f2f2;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .snippet-tab.active {
+    background-color: #ccc;
+  }
+
+  .snippet-code {
+    display: none;
+  }
+
+  .snippet-code.active {
+    display: block;
+    margin-bottom: 20px;
+  }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="main-banner">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-lg-8">
+        <div class="top-text header-text">
+          <h2 style="color: whitesmoke; font-family: Georgia, 'Times New Roman', Times, serif; font-weight: bold">Roc
+            Curve
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-5">
+  <h2 class="mb-4">Frequently Asked Questions</h2>
+
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+        aria-controls="collapseOne">
+        <h2 class="mb-0">Definition of ROC-Curve?</h2>
+      </div>
+
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <p>A receiver operating characteristic (ROC) curve is a graphical representation of the performance of a
+            binary classifier system as its discrimination threshold is varied. It is widely used in machine learning,
+            medical diagnosis, and other fields where the ability to accurately classify observations is critical.</p>
+            <hr>
+
+           <p> The ROC curve plots two parameters: the true positive rate (TPR) and the false positive rate (FPR). TPR is
+            the proportion of true positives among all positive samples, while FPR is the proportion of false positives
+            among all negative samples. The classifier's performance is evaluated by plotting the TPR against the FPR
+            for different classification thresholds. </p><br>
+
+            <p>
+              The ROC curve is a useful tool for selecting an appropriate classification threshold that balances between
+            the sensitivity and specificity of the classifier. In general, a higher TPR indicates that the classifier is
+            better at identifying true positives, while a lower FPR indicates that the classifier is better at avoiding
+            false positives.
+            </p> <br>
+
+            <p>
+              The ROC curve is often accompanied by an area under the curve (AUC) metric, which measures the overall
+            performance of the classifier. The AUC ranges from 0 to 1, with 0.5 indicating random guessing and 1
+            indicating perfect classification. A higher AUC indicates better classifier performance.
+            </p> <br>
+
+            <p>
+              The shape of the ROC curve can provide additional insights into the classifier's behavior. A curve that is
+            closer to the top-left corner of the plot indicates a better classifier, while a curve that is closer to the
+            diagonal line (representing random guessing) indicates a poorer classifier. A curve that is convex toward
+            the top-left corner indicates that the classifier is capable of balancing sensitivity and specificity over a
+            range of thresholds.
+            </p> <br>
+
+            <p>
+              In summary, the ROC curve is a powerful tool for evaluating the performance of binary classification
+            systems. It provides a visual representation of the classifier's behavior, allows the selection of an
+            appropriate classification threshold, and provides a metric for overall performance.
+            </p>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+        aria-controls="collapseTwo">
+        <h2 class="mb-0">How to interpret an ROC curve and what it tells you about the performance of a binary
+          classifier system?</h2>
+      </div>
+
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <div class="card-body">
+          <p>Interpreting an ROC curve can provide valuable insights into the performance of a binary classifier system.
+            Here are some key points to keep in mind when interpreting an ROC curve:</p> <hr>
+          <ul>
+            <li><p>1.An ROC curve plots the trade-off between true positive rate (TPR) and false positive rate (FPR) for a
+              binary classifier system.</p></li><br>
+            <li><p>2.The TPR is the proportion of true positive samples that are correctly identified by the classifier as
+              positive, while the FPR is the proportion of negative samples that are incorrectly identified as positive.</p>
+            </li><br>
+            <li><p>
+              3.The diagonal line in the ROC curve represents the performance of a random guessing classifier, which
+              has no predictive power.
+            </p></li><br>
+            <li><p>4.The closer the ROC curve is to the top-left corner of the plot, the better the performance of the
+              classifier.</p></li><br>
+            <li><p>5.A perfect classifier would have an ROC curve that passes through the top-left corner of the plot,
+              indicating that it achieves a TPR of 1.0 while maintaining an FPR of 0.0.</p></li><br>
+            <li><p>6.The area under the curve (AUC) is a commonly used metric for summarizing the overall performance of
+              the classifier. AUC ranges from 0 to 1, with 0.5 indicating random guessing and 1 indicating perfect
+              classification. A higher AUC indicates better classifier performance.</p></li><br>
+            <li><p>7.A classifier that performs better than random guessing will have an ROC curve that is above the
+              diagonal line, while a classifier that performs worse than random guessing will have an ROC curve that is
+              below the diagonal line.</p></li><br>
+            <li><p>8.The shape of the ROC curve can provide additional insights into the behavior of the classifier. A
+              curve that is convex towards the top-left corner indicates that the classifier is capable of balancing
+              sensitivity and specificity over a range of thresholds.</p></li><br>
+            <li><p>9.When comparing multiple classifiers using ROC curves, the classifier with a higher AUC or a curve that
+              is closer to the top-left corner of the plot is considered to be the better performing one.</p></li><br>
+          </ul>
+          <p>In summary, an ROC curve is a powerful tool for evaluating the performance of a binary classifier system.
+            It allows us to visualize the trade-off between true positives and false positives and provides an overall
+            performance metric in the form of the AUC.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" id="headingThree" data-toggle="collapse" data-target="#collapseThree"
+        aria-expanded="false" aria-controls="collapseThree">
+        <h2 class="mb-0">The advantages and limitations of using the area under the ROC curve (AUC) as a metric for
+          evaluating classifier performance</h2>
+      </div>
+
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+        <div class="card-body">
+          <p>The area under the ROC curve (AUC) is a widely used metric for evaluating the performance of binary
+            classification models. However, there are advantages and limitations to using this metric, which we will
+            explore below:</p>
+          <ul>
+            <p>Advantages of using AUC as a metric:</p><br>
+            <li><p>1.AUC is a scalar metric that is easy to understand and communicate, making it a convenient way to
+              summarize the overall performance of a classifier.</p></li><br>
+            <li><p>2.AUC is insensitive to changes in class distribution, making it useful for imbalanced datasets where
+              the
+              number of positive and negative examples is not equal.</p></li><br>
+            <li><p>3.AUC is a rank-based metric, which means it measures the classifier's ability to correctly rank samples
+              in order of increasing probability of belonging to the positive class, rather than a specific probability
+              threshold.</p></li><br>
+            <li><p>4.AUC is widely used in the literature, making it easy to compare the performance of different
+              classifiers
+              across different studies.</p></li><br>
+            <p>Limitations of using AUC as a metric:</p><hr>
+            <li><p>1.AUC does not provide information about the specific threshold values that were used to obtain the
+              performance metrics, making it difficult to determine the optimal threshold for making predictions.</p></li><br>
+            <li><p>2.AUC assumes that the cost of false positives and false negatives is equal, which may not be the case
+              in
+              all applications. In some cases, the cost of a false positive may be much higher than the cost of a false
+              negative, or vice versa.</p></li><br>
+            <li><p>3.AUC is less interpretable than other performance metrics, such as precision and recall, which provide
+              more insight into the classifier's behavior at specific threshold values.</p></li><br>
+            <li><p>4.AUC may not capture all aspects of classifier performance, particularly in cases where the ROC curve
+              is
+              not convex. In such cases, the AUC may not accurately reflect the classifier's ability to balance
+              sensitivity and specificity over a range of thresholds.</p></li><br>
+            <p>In summary, while AUC is a convenient and widely used metric for evaluating classifier performance, it
+              has limitations that must be considered. When using AUC, it is important to also consider other
+              performance metrics and to be aware of the assumptions and limitations of the metric.
+            </p><br>
+
+          </ul>
+
+          <p>Source: <a
+              href="https://www.sciencedirect.com/topics/engineering/confusion-matrix#:~:text=A%20confusion%20matrix%20is%20a,malignant%20tissue%20is%20considered%20cancerous.">Resource</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingThree" data-toggle="collapse" data-target="#collapseThree"
+        aria-expanded="false" aria-controls="collapseThree">
+        <h2 class="mb-0">How to create an ROC curve and calculate AUC in Python or R?</h2>
+      </div>
+
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+        <div class="card-body">
+          <!-- <p>There are many types of data visualization, each with its own strengths and weaknesses. Some common types of data visualization include: Line charts, Bar charts, Pie charts, Scatter plots, Heat maps, Choropleth maps, Tree maps, and Word clouds. The type of visualization chosen will depend on the nature of the data and the insights that need to be gained from it. For example, a line chart is useful for showing trends over time, while a scatter plot is useful for showing the relationship between two variables. A heatmap is useful for showing the distribution of data over a geographic area, while a tree map is useful for visualizing hierarchical data.</p> -->
+          <h2 class="card-title">Benefits of Data Visualization</h2>
+          <p>Creating an ROC curve and calculating the AUC can be easily done in both Python and R. Here are some
+            examples of how to do this: </p><br>
+
+          <p><h3>Python: </h3></p> <br>
+
+          <p>To create an ROC curve and calculate the AUC in Python, we can use the roc_curve and roc_auc_score
+            functions from the scikit-learn library:</p>
+          <div class="snippet-container">
+            <div class="snippet-tabs">
+              <button class="snippet-tab active">Python</button>
+              <button class="snippet-tab">JavaScript</button>
+            </div>
+            <div class="snippet-code active">
+              <pre>
+            <code>
+                from sklearn.metrics import roc_curve, roc_auc_score
+                import matplotlib.pyplot as plt
+                
+                # assume y_true and y_pred are the true labels and predicted scores, respectively
+                fpr, tpr, thresholds = roc_curve(y_true, y_pred)
+                auc_score = roc_auc_score(y_true, y_pred)
+                
+                # plot the ROC curve
+                plt.plot(fpr, tpr)
+                plt.xlabel('False Positive Rate')
+                plt.ylabel('True Positive Rate')
+                plt.title('ROC Curve')
+                plt.show()
+                
+                # print the AUC score
+                print('AUC:', auc_score)
+            </code>
+              </pre>
+            </div>
+            <div class="snippet-code">
+              <pre><code>console.log("from sklearn.metrics import roc_curve, roc_auc_score
+                import matplotlib.pyplot as plt
+                
+                # assume y_true and y_pred are the true labels and predicted scores, respectively
+                fpr, tpr, thresholds = roc_curve(y_true, y_pred)
+                auc_score = roc_auc_score(y_true, y_pred)
+                
+                # plot the ROC curve
+                plt.plot(fpr, tpr)
+                plt.xlabel('False Positive Rate')
+                plt.ylabel('True Positive Rate')
+                plt.title('ROC Curve')
+                plt.show()
+                
+                # print the AUC score
+                print('AUC:', auc_score)");</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('.card-header').click(function () {
+      $(this).toggleClass('active').next().slideToggle('fast');
+    });
+  });
+</script>
+<script>
+  const tabs = document.querySelectorAll('.snippet-tab');
+const codes = document.querySelectorAll('.snippet-code');
+
+tabs.forEach((tab, i) => {
+  tab.addEventListener('click', () => {
+    // remove active classes from all tabs and codes
+    tabs.forEach((tab) => tab.classList.remove('active'));
+    codes.forEach((code) => code.classList.remove('active'));
+
+    // add active class to clicked tab and corresponding code
+    tab.classList.add('active');
+    codes[i].classList.add('active');
+  });
+});
+
+</script>
+
+{% endblock content %}

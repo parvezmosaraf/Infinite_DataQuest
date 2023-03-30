@@ -1,0 +1,177 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+
+<style>
+  h2 {
+    color: White;
+    font-family: poppins;
+  }
+
+  .card-header {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  }
+
+  .mb-0 {
+    margin-bottom: 0 !important;
+    color: black;
+    font-family: poppins;
+    font-weight: 300;
+    font-size: 2.5rem;
+    border-radius: 3rem;
+    padding: 1rem;
+  }
+
+  p {
+    /* font-size: 15px; */
+    line-height: 30px;
+    color: #2a2a2a;
+    font-family: monospace;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-left: 3rem;
+  }
+
+  /* ul,
+  li {
+    line-height: 30px;
+    color: #2a2a2a;
+    font-family: monospace;
+    font-weight: 400;
+    font-size: 1.2rem;
+  } */
+
+  .card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    background: none;
+    font-family: poppins;
+    border-radius: 3rem;
+  }
+
+  .card {
+    border: 0;
+  }
+
+  ul,
+  li {
+    line-height: 30px;
+    color: #2a2a2a;
+    font-family: monospace;
+    font-weight: 400;
+    font-size: 1.2rem;
+    /* margin-left: 1rem; */
+  }
+</style>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<div class="main-banner">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-lg-8">
+        <div class="top-text header-text">
+          <h2
+            style="color: yellowgreen; font-family: poppins; font-weight: bold"
+          >
+            How our website works
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-5">
+  <h2 class="mb-4">Frequently Asked Questions</h2>
+
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div
+        class="card-header"
+        id="headingOne"
+        data-toggle="collapse"
+        data-target="#collapseOne"
+        aria-expanded="true"
+        aria-controls="collapseOne"
+      >
+        <h2 class="mb-0">Here's how they typically work:</h2>
+      </div>
+
+      <div
+        id="collapseOne"
+        class="collapse show"
+        aria-labelledby="headingOne"
+        data-parent="#accordionExample"
+      >
+        <div class="card-body">
+          <p>
+            Data visualization websites are designed to display data in a
+            visually appealing and interactive way, making it easier for users
+            to understand and interpret complex information.
+          </p>
+          <hr />
+          <ul>
+            <li>
+              <h3>Data Collection:</h3><br> Data visualization websites obtain their data
+              from various sources, such as APIs, databases, spreadsheets, or
+              CSV files.
+            </li>
+            <hr />
+            <li>
+              <h3>Data Processing:</h3><br> Once the data is collected, it is cleaned,
+              processed, and formatted to make it suitable for visualization.
+            </li>
+            <hr />
+            <li>
+              <h3>Visualization Design:</h3><br> The website's design team creates the
+              visualizations, choosing the most appropriate type for the data
+              being displayed. Some common types of visualizations include
+              charts, graphs, maps, and diagrams.
+            </li><hr>
+            <li>
+              <h3>Front-end Development:</h3><br> The website's front-end developer uses
+              HTML, CSS, and JavaScript to create the interactive user interface
+              for the visualizations. They also ensure that the website is
+              responsive and mobile-friendly.
+            </li><hr>
+            <li>
+              <h3>Back-end Development:</h3><br> The website's back-end developer handles the
+              server-side processing, such as data storage and retrieval, API
+              integration, and database management.
+            </li><hr>
+            <li>
+              <h3>Deployment:</h3><br> The website is deployed to a web server or cloud
+              platform, where it can be accessed by users.
+            </li><hr>
+            <li>
+              <h3>User Interaction:</h3><br> Users can interact with the visualizations,
+              often by hovering over or clicking on data points to reveal more
+              information. Some websites also allow users to customize the
+              visualizations or download the data.
+            </li><hr>
+            <p>Overall, data visualization websites use a combination of data
+                processing, design, and programming skills to create engaging and
+                informative displays of complex information.
+              
+            </p>
+          </ul>
+
+          <img src="" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $(".card-header").click(function () {
+      $(this).toggleClass("active").next().slideToggle("fast");
+    });
+  });
+</script>
+{% endblock content %}

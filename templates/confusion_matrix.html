@@ -1,0 +1,324 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+  h2 {
+    color: White;
+    font-family: poppins;
+  }
+
+  .card-header {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  }
+
+  .mb-0 {
+    margin-bottom: 0 !important;
+    color: black;
+    font-family: poppins;
+    font-weight: 300;
+    font-size: 2.5rem;
+    border-radius: 3rem;
+    padding: 1rem;
+  }
+
+  p {
+    /* font-size: 15px; */
+    line-height: 30px;
+    color: #2a2a2a;
+    font-family: monospace;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-left: 3rem;
+  }
+
+  /* ul,
+  li {
+    line-height: 30px;
+    color: #2a2a2a;
+    font-family: monospace;
+    font-weight: 400;
+    font-size: 1.2rem;
+  } */
+
+  .card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    background: none;
+    font-family: poppins;
+    border-radius: 3rem;
+  }
+
+  .card {
+    border: 0;
+  }
+
+  ul,
+  li {
+    line-height: 30px;
+    color: #2a2a2a;
+    font-family: monospace;
+    font-weight: 400;
+    font-size: 1.2rem;
+    /* margin-left: 1rem; */
+  }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="main-banner">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-lg-8">
+        <div class="top-text header-text">
+          <h2 style="color: yellowgreen; font-family: poppins; font-weight: bold">Confusion Matrix in Machine Learning
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-5">
+  <h2 class="mb-4">Frequently Asked Questions</h2>
+
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+        aria-controls="collapseOne">
+        <h2 class="mb-0">What is Confusion Matrix?</h2>
+      </div>
+
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <p>A confusion matrix is a table that is commonly used to evaluate the performance of a machine learning
+            model. It is a matrix that summarizes the number of correct and incorrect predictions made by the model for
+            each class in the data. In other words, it shows how well the model is able to classify examples into
+            different categories.
+
+            A confusion matrix consists of four quadrants: true positives (TP), false positives (FP), true negatives
+            (TN), and false negatives (FN). The rows of the matrix represent the actual class labels, while the columns
+            represent the predicted class labels. The true positives (TP) are cases in which the model correctly
+            predicts the positive class, while false positives (FP) are cases in which the model incorrectly predicts
+            the positive class. True negatives (TN) are cases in which the model correctly predicts the negative class,
+            while false negatives (FN) are cases in which the model incorrectly predicts the negative class.
+
+            By examining the confusion matrix, we can calculate various performance metrics such as accuracy, precision,
+            recall, and F1-score, which can be used to evaluate the effectiveness of a machine learning model. The
+            confusion matrix is a powerful tool for visualizing the performance of a model and identifying areas where
+            the model can be improved.</p> <br>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+        aria-controls="collapseTwo">
+        <h2 class="mb-0">Why we use Confusion Matrix?</h2>
+      </div>
+
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <div class="card-body">
+          <p>The confusion matrix is a useful tool for evaluating the performance of a classification model. It provides
+            a detailed breakdown of the model's predictions and can help identify areas of the model that may need
+            improvement. </p> <br>
+
+          <p> By examining the confusion matrix, we can calculate various performance metrics such as accuracy,
+            precision,
+            recall, and F1 score, which can help us understand the strengths and weaknesses of the model. We can also
+            use the confusion matrix to visualize the distribution of true positives, true negatives, false positives,
+            and false negatives, which can help us identify any patterns or biases in the model's predictions. </p><br>
+
+          <p> Overall, the confusion matrix is a powerful tool for evaluating the performance of a classification model
+            and can provide valuable insights for improving the model's accuracy and effectiveness.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" id="headingThree" data-toggle="collapse" data-target="#collapseThree"
+        aria-expanded="false" aria-controls="collapseThree">
+        <h2 class="mb-0">Scenario of Confusion Matrix </h2>
+      </div>
+
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+        <div class="card-body">
+          <p>Suppose you are building a binary classifier to predict whether a person has a certain disease or not. You
+            test your classifier on a dataset of 100 individuals and obtain the following results: </p> <br>
+          <ul>
+
+            <li>
+              <p> True Positive (TP) = 40: Your classifier correctly predicted that 40 individuals have the disease.</p>
+            </li><br>
+            <li>
+              <p> False Positive (FP) = 10: Your classifier predicted that 10 individuals have the disease, but they
+                actually don't.</p>
+            </li> <br>
+            <li>
+              <p> False Negative (FN) = 20: Your classifier predicted that 20 individuals don't have the disease, but
+                they actually do.</p>
+            </li> <br>
+            <li>
+              <p> True Negative (TN) = 30: Your classifier correctly predicted that 30 individuals don't have the
+                disease.</p>
+            </li><br>
+            <p> In this confusion matrix, the rows represent the actual classes of the individuals (positive for having
+              the
+              disease and negative for not having the disease), while the columns represent the predicted classes by the
+              classifier. The values in the diagonal (top-left to bottom-right) are the correct predictions (TP and TN),
+              while the values outside the diagonal are the incorrect predictions (FP and FN).
+            </p>
+          </ul>
+          <h2 class="card-title">Importance of Confusion Matrix</h2>
+          <p>Here are some important points to consider regarding the importance of confusion matrices:</p>
+
+          <ul>
+            <li>
+              <p> Provides a clear and concise summary of the performance of a classification model.</p>
+            </li><br>
+            <li>
+              <p>
+                Enables quick and easy comparison of multiple classification models and their performance.
+              </p>
+            </li><br>
+            <li>
+              <p>
+                Helps identify which classes are being confused with each other and where the model may be struggling.
+              </p>
+            </li><br>
+            <li>
+              <p>
+                Can be used to adjust the decision threshold of a model based on specific needs.
+              </p>
+            </li><br>
+            <li>
+              <p>
+                Provides insights into the strengths and weaknesses of a model, and can guide further model development
+                and improvement.
+              </p>
+            </li><br>
+            <li>
+              <p>
+                Helps to determine which errors are more costly and need to be given more attention.
+              </p>
+            </li><br>
+            <li>
+              <p>
+                Provides a foundation for evaluating the effectiveness of different strategies for handling imbalanced
+                datasets.
+              </p>
+            </li><br>
+            <li>
+              <p>
+                Facilitates a more comprehensive understanding of model performance, going beyond simple accuracy
+                measures.
+              </p>
+            </li><br>
+            <li>
+              <p>
+                Can be used to calculate additional evaluation metrics such as precision, recall, and F1-score.
+              </p>
+            </li><br>
+          </ul>
+          <p>Source: <a
+              href="https://www.sciencedirect.com/topics/engineering/confusion-matrix#:~:text=A%20confusion%20matrix%20is%20a,malignant%20tissue%20is%20considered%20cancerous.">Resource</a>
+          </p><br>
+
+          <h2 class="card-title">Conclusion</h2>
+          <p>The confusion matrix is an essential tool for evaluating the performance of classification models. It
+            provides a clear and concise summary of the model's performance in terms of its ability to correctly predict
+            positive and negative cases. Some key conclusions that can be drawn from a confusion matrix are:
+          </p><br>
+          <ul>
+            <li><p>Accuracy: The overall accuracy of the model can be calculated by adding the diagonal elements of the
+              confusion matrix and dividing by the total number of observations. This gives us a measure of how often
+              the model correctly classified the cases.</p></li><br>
+            <li><p>Precision: Precision measures the proportion of positive cases that were correctly identified by the
+              model. It can be calculated by dividing the true positives by the sum of true positives and false
+              positives. This is a useful metric when the cost of a false positive is high.</p></li><br>
+            <li><p>Recall: Recall measures the proportion of actual positive cases that were correctly identified by the
+              model. It can be calculated by dividing the true positives by the sum of true positives and false
+              negatives. This is a useful metric when the cost of a false negative is high.</p></li><br>
+            <li><p>F1 Score: F1 score is a harmonic mean of precision and recall. It gives us an overall measure of the
+              model's accuracy that takes into account both false positives and false negatives.</p></li><br>
+            <li><p>ROC Curve: The receiver operating characteristic (ROC) curve is a graphical representation of the
+              performance of the classification model as the discrimination threshold is varied. It shows the trade-off
+              between true positive rate (sensitivity) and false positive rate (1-specificity). The area under the ROC
+              curve (AUC) is a useful metric for evaluating the overall performance of the model.</p></li><br>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingThree" data-toggle="collapse" data-target="#collapseThree"
+        aria-expanded="false" aria-controls="collapseThree">
+        <h2 class="mb-0">How to Calculate Confusion Matrix for a 2-class classification problem?</h2>
+      </div>
+
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+        <div class="card-body">
+          <!-- <p>There are many types of data visualization, each with its own strengths and weaknesses. Some common types of data visualization include: Line charts, Bar charts, Pie charts, Scatter plots, Heat maps, Choropleth maps, Tree maps, and Word clouds. The type of visualization chosen will depend on the nature of the data and the insights that need to be gained from it. For example, a line chart is useful for showing trends over time, while a scatter plot is useful for showing the relationship between two variables. A heatmap is useful for showing the distribution of data over a geographic area, while a tree map is useful for visualizing hierarchical data.</p> -->
+          <h2 class="card-title">Benefits of Data Visualization</h2>
+          <p>To calculate the confusion matrix for a 2-class classification problem, you need to follow these steps:</p><hr>
+          <ul>
+            <li><p>1.Identify the true positive (TP), true negative (TN), false positive (FP), and false negative (FN)
+              values based on the predicted and actual class labels.</p></li>
+            <li><p>2.True positive (TP): The number of positive instances that are correctly classified as positive.</p></li>
+            <li><p>3.True negative (TN): The number of negative instances that are correctly classified as negative.</p></li>
+            <li><p>4.False positive (FP): The number of negative instances that are incorrectly classified as positive.</p>
+            </li>
+            <li><p>5.False negative (FN): The number of positive instances that are incorrectly classified as negative.</p>
+            </li>
+            <li><p>6.Once you have identified the TP, TN, FP, and FN values, you can construct the confusion matrix, which
+              is a 2x2 matrix that displays the counts of these values as follows:</p></li>
+            <li><p>7.The confusion matrix can be used to calculate various evaluation metrics, such as accuracy, precision,
+              recall, F1 score, and specificity. These metrics provide insights into the performance of the
+              classification model.</p></li>
+            <li><p>8.You can use the confusion matrix and evaluation metrics to make decisions on how to improve the model,
+              such as adjusting the threshold, changing the features used in the model, or selecting a different
+              algorithm.</p></li><br><br>
+            <table style="border: 1px solid black; border-collapse: collapse; text-align:center; margin-left: 32px;">
+              <p>
+                <tr>
+                  <th style="border: 1px solid black; padding: 5px;">Class</th>
+                  <th style="border: 1px solid black; padding: 5px;">Predicted Positive</th>
+                  <th style="border: 1px solid black; padding: 5px;">Predicted Negative</th>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid black; padding: 5px;">Actual Positive</td>
+                  <td style="border: 1px solid black; padding: 5px; color: green;">TP</td>
+                  <td style="border: 1px solid black; padding: 5px; color: red;">FN</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid black; padding: 5px;">Actual Negative</td>
+                  <td style="border: 1px solid black; padding: 5px; color: red;">FP</td>
+                  <td style="border: 1px solid black; padding: 5px; color: green;">TN</td>
+                </tr>
+              </p>
+            </table>
+          </ul>
+          <h2 class="card-title">Conclusion</h2>
+          <p>It is difficult to compare two models with low precision and high recall or vice versa. So to make them
+            comparable, we use F-Score. F-score helps to measure Recall and Precision at the same time. It uses Harmonic
+            Mean in place of Arithmetic Mean by punishing the extreme values more.
+
+          </p>
+          <p>Source: <a href="https://towardsdatascience.com/understanding-confusion-matrix-a9ad42dcfd62">Resource</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('.card-header').click(function () {
+      $(this).toggleClass('active').next().slideToggle('fast');
+    });
+  });
+</script>
+{% endblock content %}

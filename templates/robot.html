@@ -1,0 +1,142 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    /* Add some styles to make the template look like Messenger */
+    .main-banner {
+        background-image: transparent;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        /* display: flex; */
+        justify-content: center;
+        align-items: center;
+    }
+    .openai-chatbot-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        margin: 0 auto;
+        background-color: #f7f7f7;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        padding: 10px;
+        background-color: #f7f7f7;
+    }
+
+    textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 20px;
+        margin-right: 10px;
+        background-color: #ededed;
+        resize: none;
+        outline: none;
+    }
+
+    input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #0084ff;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        font-size: 16px;
+        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    p {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #0084ff;
+        color: white;
+        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
+        align-self: flex-start;
+        max-width: 80%;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    
+
+    /* Add some responsive styles */
+    @media (max-width: 767px) {
+        .openai-chatbot-container {
+            width: 90%;
+        }
+    }
+
+    @media (max-width: 500px) {
+        form {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        textarea {
+            margin-bottom: 10px;
+        }
+    }
+
+    /* Add animations */
+    @keyframes slideInLeft {
+        from {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0%);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0%);
+            opacity: 1;
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.1);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+</style>
+<div class="main-banner">
+<div class="openai-chatbot-container">
+    <form id="chat" action="{% url 'chat_form' %}" method="post">
+        {% csrf_token %}
+        <textarea id="chat-message" name="message" placeholder="Type your message here"></textarea>
+        <input type="submit" value="Submit">
+    </form>
+    {% if response %}
+    <p>{{ response|safe }}</p>
+    {% endif %}
+</div>
+</div>
+{% endblock content %}

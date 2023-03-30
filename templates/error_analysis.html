@@ -1,0 +1,120 @@
+ {% extends 'main.html' %} 
+ {% load static %} 
+ {% block content %}
+
+<style>
+  h2 {
+    color: White;
+    font-family: poppins;
+  }
+
+  .card-header {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  }
+
+  .mb-0 {
+    margin-bottom: 0 !important;
+    color: black;
+    font-family: poppins;
+    font-weight: 300;
+    font-size: 2.5rem;
+    border-radius: 3rem;
+    padding: 1rem;
+  }
+
+  p {
+    /* font-size: 15px; */
+    line-height: 30px;
+    color: #2a2a2a;
+    font-family: monospace;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-left: 3rem;
+  }
+
+  /* ul,
+  li {
+    line-height: 30px;
+    color: #2a2a2a;
+    font-family: monospace;
+    font-weight: 400;
+    font-size: 1.2rem;
+  } */
+
+  .card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    background: none;
+    font-family: poppins;
+    border-radius: 3rem;
+  }
+
+  .card {
+    border: 0;
+  }
+
+  ul,
+  li {
+    line-height: 30px;
+    color: #2a2a2a;
+    font-family: monospace;
+    font-weight: 400;
+    font-size: 1.2rem;
+    /* margin-left: 1rem; */
+  }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<div class="main-banner">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-lg-8">
+        <div class="top-text header-text">
+          <h2 style="color: yellowgreen; font-family: poppins; font-weight: bold">
+            Dataset Description
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-5">
+  <h2 class="mb-4">Frequently Asked Questions</h2>
+
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+        aria-controls="collapseOne">
+        <h2 class="mb-0">What is Error Analysis in Machine Learning and how can it help improve model performance?</h2>
+      </div>
+
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <p>Error Analysis is an important step in the machine learning workflow that involves identifying and
+            analyzing the errors made by a trained model on a validation set or test set. This process helps to identify
+            patterns and trends in the errors made by the model, which can inform improvements to the model's architecture,
+            hyperparameters, or training data. </p><hr>
+            <p>Some common techniques used in error analysis include confusion matrices, precision-recall curves, and ROC
+              curves. These tools can help to quantify and visualize the errors made by a model, making it easier to identify
+              patterns and trends. </p><hr>
+              <p>By performing error analysis, machine learning practitioners can gain insights into how their models are
+                performing and make informed decisions about how to improve them. This can ultimately lead to better model
+                performance and more accurate predictions.</p> <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $(".card-header").click(function () {
+      $(this).toggleClass("active").next().slideToggle("fast");
+    });
+  });
+</script>
+{% endblock content %}

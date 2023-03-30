@@ -1,0 +1,96 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FAQs - Help and Support</title>
+    <style>
+        * {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+main {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 40px;
+}
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #0056b3;
+}
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Help and Support</h1>
+    </header>
+    <main>
+      <h2>Frequently Asked Questions</h2>
+      <ul>
+        <li>
+          <h3>What is your product?</h3>
+          <p>Our product is a software tool that helps businesses manage their finances.</p>
+        </li>
+        <li>
+          <h3>How much does your product cost?</h3>
+          <p>Pricing varies depending on the size of your business and the features you need. Please see our <a href="{% url 'pricing' %}">pricing page</a> for more information.</p>
+        </li>
+        <li>
+          <h3>Do you offer a free trial?</h3>
+          <p>Yes, we offer a free trial for 5 days. You can sign up for the trial on our <a href="{% url 'home' %}">homepage</a>.</p>
+        </li>
+        <li>
+          <h3>What types of payment do you accept?</h3>
+          <p>We accept credit cards, PayPal, and bank transfers.</p>
+        </li>
+        <li>
+          <h3>What if I need help with the software?</h3>
+          <p>You can contact our support team by <a href="{% url 'contact' %}">email</a>, phone, or live chat.</p>
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
+{% endblock content %}

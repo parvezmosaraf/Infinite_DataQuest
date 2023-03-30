@@ -1,0 +1,184 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+
+<style>
+    h2 {
+        color: White;
+        font-family: poppins;
+    }
+
+    .card-header {
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+        margin-bottom: 0;
+        background-color: transparent;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    }
+
+    .mb-0 {
+        margin-bottom: 0 !important;
+        color: black;
+        font-family: poppins;
+        font-weight: 300;
+        font-size: 2.5rem;
+        border-radius: 3rem;
+        padding: 1rem;
+    }
+
+    p {
+        /* font-size: 15px; */
+        line-height: 30px;
+        color: #2a2a2a;
+        font-family: monospace;
+        font-weight: 400;
+        font-size: 1.2rem;
+        margin-left: 3rem;
+    }
+
+    /* ul,
+  li {
+    line-height: 30px;
+    color: #2a2a2a;
+    font-family: monospace;
+    font-weight: 400;
+    font-size: 1.2rem;
+  } */
+
+    .card-body {
+        flex: 1 1 auto;
+        padding: 1rem 1rem;
+        background: none;
+        font-family: poppins;
+        border-radius: 3rem;
+    }
+
+    .card {
+        border: 0;
+    }
+
+    ul,
+    li {
+        line-height: 30px;
+        color: #2a2a2a;
+        font-family: monospace;
+        font-weight: 400;
+        font-size: 1.2rem;
+        /* margin-left: 1rem; */
+    }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<div class="main-banner">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-8">
+                <div class="top-text header-text">
+                    <h2 style=" color: yellowgreen; font-family: poppins; font-weight: bold">
+                        Dataset Plotting
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container my-5">
+    <h2 class="mb-4">Frequently Asked Questions</h2>
+
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+                <h2 class="mb-0">What is Dataset plotting?</h2>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <p>
+                        Dataset plotting is the process of visualizing data points in a dataset using graphical
+                        representations such as scatter plots, bar charts, histograms, and more. The purpose of dataset
+                        plotting is to gain insights into the data, identify patterns and trends, and communicate the
+                        results effectively.
+                        <hr>
+
+                    <p> In dataset plotting, each data point is represented by a symbol, such as a dot or a bar, and its
+                        position or height represents the value of a particular variable. By plotting multiple
+                        variables, it is possible to identify correlations and relationships between them. </p>
+                    <hr>
+
+                    <p> Dataset plotting is commonly used in data analysis, machine learning, and scientific research.
+                        It is often the first step in exploratory data analysis, where analysts visualize the data to
+                        gain insights into its characteristics and properties before applying statistical or machine
+                        learning algorithms.</p>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" id="headingThree" data-toggle="collapse" data-target="#collapseThree"
+                aria-expanded="false" aria-controls="collapseThree">
+                <h2 class="mb-0">How dataset plotting help data analyst?</h2>
+            </div>
+
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                    <ul>
+                        <p>Dataset plotting is an essential tool for data analysts, as it helps to: </p> <br>
+
+                        <li>
+                            <p>
+                                Visualize and summarize data: Dataset plotting allows analysts to visually inspect and
+                                understand the data quickly. By looking at graphs and charts, analysts can quickly
+                                identify
+                                patterns, trends, and outliers that may not be immediately apparent in a raw dataset.
+                            </p>
+                        </li> <br>
+                        <li>
+                            <p>
+                                Identify relationships and correlations: Dataset plotting enables analysts to identify
+                                relationships and correlations between different variables in the dataset. This is
+                                particularly
+                                useful in exploratory data analysis, where analysts are looking for patterns that can
+                                inform
+                                further analysis.</p>
+                        </li> <br>
+                        <li>
+                            <p>
+                                Communicate insights effectively: Dataset plotting is an excellent way to communicate
+                                insights effectively to stakeholders. By presenting data in a clear and visually
+                                appealing way, analysts can help stakeholders understand the implications of the data
+                                and make informed decisions based on it. </p>
+                        </li> <br>
+                        <li> <p>
+                            Identify data quality issues: Dataset plotting can help analysts identify issues with data
+                            quality, such as missing values, outliers, and inconsistent data. By visualizing the data,
+                            analysts can quickly identify data points that are outside the expected range or that do not
+                            fit the pattern of the rest of the data.</p>
+                        </li> <br>
+                        <li> <p>
+                            Select appropriate modeling techniques: Dataset plotting can help analysts choose
+                            appropriate modeling techniques for the data. By identifying patterns and relationships in
+                            the data, analysts can choose models that are best suited to the data and the problem they
+                            are trying to solve. </p>
+                        </li> <br>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <button type="button" class="plot"
+        style="margin-left: 30px; border-radius: 10px; background-color: blanchedalmond;"><a
+            style="color: #000; font-family: poppins;" href="{% url 'visualize_page' %}"> Click Here for
+            visualize</a></button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".card-header").click(function () {
+            $(this).toggleClass("active").next().slideToggle("fast");
+        });
+    });
+</script>
+{% endblock content %}

@@ -1,0 +1,393 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<style>
+  .main-banner .top-text {
+    text-align: center;
+    margin-top: -11rem;
+    overflow: hidden;
+  }
+
+  .input {
+    margin-top: 15px;
+  }
+
+  .home {
+    color: rgb(172, 172, 172);
+  }
+
+  button:not(:disabled),
+  [type=button]:not(:disabled),
+  [type=reset]:not(:disabled),
+  [type=submit]:not(:disabled) {
+    cursor: pointer;
+    border-radius: 29px;
+  }
+
+  .btn-file {
+    position: relative;
+    border: 0;
+    outline: 0;
+    overflow: hidden;
+    background: linear-gradient(rgb(208 240 255), rgb(197 203 255));
+    border-radius: 50px;
+    margin-bottom: 10px;
+  }
+
+  .btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+  }
+
+  .upload-btn {
+    background: linear-gradient(rgb(112 89 215), rgb(77 96 249));
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 12px 25px;
+    border: 0;
+    outline: 0;
+  }
+
+  .upload-choose-area {
+    background-color: transparent;
+    padding: 19px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 1px 291px;
+    box-sizing: border-box;
+    margin-top: -5rem;
+  }
+
+  .show-img-res {
+    width: 50%;
+    margin: 2.5rem auto;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    border: 2px solid #e4e4e4;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+
+  /* 
+  /* New styles for the form */
+  form {
+    margin-top: 2rem;
+  }
+
+  label {
+    font-size: 1.5rem;
+    color: #1f2937;
+  }
+
+  select,
+  input[type='file'] {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 62px;
+    border: 2px solid #e4e4e4;
+    margin: 0.5rem 0;
+    width: 60%;
+  }
+
+  select#download-format {
+    padding: 0.6rem;
+    width: 32%;
+    color: darkgreen;
+    font-size: 18px;
+    font-family: poppins;
+    font-weight: bolder;
+  }
+
+  input[type='submit'] {
+    margin-top: 1rem;
+    background-color: #6366f1;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  input[type='submit']:hover {
+    background-color: #4b4fe4;
+  }
+
+  .btn-info {
+    color: white;
+    background-color: orangered;
+    border-color: orangered;
+    font-size: large;
+    font-family: poppins;
+  }
+
+  .btn-file {
+    position: relative;
+    overflow: hidden;
+    margin: 0.5rem 0;
+    display: inline-block;
+  }
+
+  .btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+  }
+
+  .btn-file:hover {
+    background-color: #4b4fe4;
+    color: white;
+  }
+
+  .btn-file:hover input[type="file"] {
+    cursor: pointer;
+  }
+
+  .btn-file input:focus+label,
+  .btn-file input:active+label {
+    outline: none;
+  }
+
+  .btn-file label {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    color: #495057;
+    background-color: white;
+    transition: all 0.2s;
+  }
+
+  .btn-warning {
+    color: #000;
+    border-color: palegreen;
+    padding: 0.5rem !important;
+    background: palegreen;
+  }
+  label {
+    font-family: poppins;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+  .btn-file label:hover {
+    background-color: #4b4fe4;
+    color: white;
+    border-color: #4b4fe4;
+  }
+
+  .btn-file input:invalid+label {
+    color: #dc3545;
+    border-color: #dc3545;
+  }
+
+  .btn-file input:valid+label {
+    color: #155724;
+    border-color: #155724;
+  }
+
+  .btn-file input:valid+label:hover {
+    background-color: #155724;
+    color: white;
+    border-color: #155724;
+  }
+  }
+
+  /* Example media query */
+  @media screen and (min-width: 768px) {
+    .container {
+      max-width: 768px;
+    }
+  }
+
+  /* Example keyframes animation */
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  /* Example animation usage */
+  .slide-in {
+    animation: slide-in 1s forwards;
+  }
+
+  /* Example animation keyframes */
+  @keyframes slide-in {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+
+  document.getElementById('choose-btn').addEventListener('click', function (e) {
+    console.log(e.target)
+  })
+
+
+</script>
+
+
+<div class="main-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="top-text header-text">
+          <h2>Upload Your Dataset &amp; Click</h2>
+        </div>
+      </div>
+      <div class="col-lg-12 upload-choose-area">
+
+        <form action="{% url 'visualize' %}" method="post" enctype="multipart/form-data">
+
+          <div class="row align-items-center">
+
+            <div class="col col-md-6">
+
+              {% csrf_token %}
+              <button type="button" id="choose-btn" class="btn btn-file"><input type="file" name="csv_file">Choose
+                File</button>
+
+              <!-- <span id="choose-btn" class="btn btn-file">
+                Choose File<input type="file" name="csv_file">
+              </span> -->
+
+              {% if user.is_authenticated %}
+              <button type="submit" class="btn btn-primary"
+                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Upload
+              </button>
+              {% else %}
+              <br>
+              <br>
+              <button><a style="color: #000; font-family: poppins;" href="{% url 'signin' %}"> Sign In or Registration
+                  for Visualize</a></button>
+
+              {% endif %}
+
+
+
+            </div>
+
+            <div class="col col-md-6">
+              <div
+                style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-transform: uppercase; color: white;">
+                {% if csv_data %}
+                <input type="hidden" name="csv_data" value="{{ csv_data }}">
+                <select name="chart_type">
+                  <option value="box_plot">Box Plot</option>
+                  <option value="bubble_chart">Bubble Chart</option>
+                  <option value="time_series_chart">Time Series Chart</option>
+                  <option value="graph_chart">Graph Chart</option>
+                  <option value="correlation_matrix">Correlation Matrix</option>
+                  <option value="scatter_plot">Scatter Plot</option>
+                  <option value="line_graph">Line Graph(Under Maintaince)</option>
+                  <option value="pie_chart">Pie Chart</option>
+                  <option value="heat_map">Heat Map (Under Maintaince)</option>
+                  <option value="area_chart">Area Chart</option>
+                  <option value="choropleth_map">Choropleth Map</option>
+                  <option value="bar_chart">Bar Chart</option>
+                  <option value="histogram">Histogram</option>
+                </select>
+                <button type="submit" name="display_charts" class="btn btn-warning btn-rounded">Display Chart</button>
+                <!-- <input class="btn upload-btn" type="submit" name="display_charts" value="Display Chart"> -->
+                {% endif %}
+
+              </div>
+            </div>
+
+
+          </div>
+
+        </form>
+      </div>
+      <div class="container mt-3 rounded" style="text-align: center;">
+        {% if show_charts %}
+        <img class="show-img-res" src="data:image/png;base64,{{ chart_data }}" alt="chart">
+        <div>
+          <label for="download-format" style="color: #e4e4e4; font-family: poppins; font-weight: 400;">Download
+            as:</label>
+          <select id="download-format">
+            <option value="png">PNG</option>
+            <option value="jpeg">JPEG</option>
+            <option value="svg">SVG</option>
+            <option value="pdf">PDF</option>
+          </select>
+          <a id="download-link" href="#" download="chart.png">
+            <button type="button" class="btn btn-info btn-rounded">Download</button>
+          </a>
+        </div>
+        {% endif %}
+      </div>
+
+      <script>
+        const downloadFormat = document.getElementById('download-format');
+        const downloadLink = document.getElementById('download-link');
+
+        downloadFormat.addEventListener('change', function () {
+          const format = downloadFormat.value;
+          downloadLink.href = `data:image/${format};base64,{{ chart_data }}`;
+          downloadLink.download = `chart.${format}`;
+        });
+      </script>
+
+
+
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
+
+
+
+
+
+{% endblock content %}

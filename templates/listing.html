@@ -1,0 +1,161 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+  .row {
+    text-align: center;
+  }
+
+  .card {
+    margin: auto;
+  }
+
+  .pricing {
+    color: rgb(172, 172, 172);
+  }
+
+  /* card area */
+
+  .subscribe-btn {
+    background: linear-gradient(rgb(89, 175, 215), rgb(65, 75, 156));
+  }
+
+  .list-title {
+    color: rgb(238, 52, 56);
+    font-size: 1.5rem;
+  }
+
+  .list-price {
+    font-size: 2rem;
+  }
+
+  .list-area {
+    font-size: .8rem;
+    color: #7c7878f5;
+  }
+
+  .list-card.card {
+    border: 0;
+    box-shadow: 10px 9px 12px 10px #d0dce0;
+    border-radius: 12px;
+  }
+  .subscribe-btn {
+    border: 0;
+    padding: 10px 0;
+    border-radius: 50px;
+  }
+  .list-group-item{
+    background-color: transparent !important;
+  }
+  .list-card:hover{
+    background: linear-gradient(rgb(202 232 248), rgb(209 214 255));
+    transition: all 0.5s ease;
+  }
+  .list-card:hover .subscribe-btn{
+    background: #fff;
+    color: black !important;
+    transition: all 0.5s ease;
+  }
+</style>
+
+<div class="main-banner">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-lg-8">
+        <div class="top-text header-text">
+          <h6>Check Out Our Pricing</h6>
+          <h2>Price Different Categories</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container mt-5 mb-4 py-3">
+  <div class="row">
+    <div class="col col-sm-6 col-lg-4">
+      <div class="list-card card px-2 py-4" style="width: 18rem;">
+
+        <div class="card-body">
+          <div class="card-title list-title fw-bold">Basic</div>
+          <div class="list-price fw-bold">$9.99 <span class="fs-6">Per Month</span></div>
+        </div>
+
+        <div class="mx-3">
+          <ul class="list-group list-group-flush list-area">
+            <li class="list-group-item fw-bold">5 Visualize/Day</li>
+            <li class="list-group-item fw-bold">No Watermark</li>
+            <li class="list-group-item fw-bold">Download 480p Picture</li>
+            <li class="list-group-item fw-bold">Using CSV File</li>
+            <li class="list-group-item fw-bold">Monthly Subscription</li>
+          </ul>
+          <div class="subscribe my-3">
+            <a href="{% url 'charge' %}"><button class="btn subscribe-btn w-75 text-white fw-bold">Subscribe</button></a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col col-sm-6 col-lg-4">
+
+      <div class="list-card card px-2 py-4" style="width: 18rem;">
+
+        <div class="card-body">
+          <div class="card-title list-title fw-bold">Standard</div>
+          <div class="list-price fw-bold">$19.99 <span class="fs-6">Per Month</span></div>
+        </div>
+
+        <div class="mx-3">
+          <ul class="list-group list-group-flush list-area">
+            <li class="list-group-item fw-bold">10 Visualize/Day</li>
+            <li class="list-group-item fw-bold">No Watermark</li>
+            <li class="list-group-item fw-bold">Download 720p Picture</li>
+            <li class="list-group-item fw-bold">Using CSV and xlxs File</li>
+            <li class="list-group-item fw-bold">Monthly Subscription</li>
+          </ul>
+          <div class="subscribe my-3">
+            <a href="{% url 'charge' %}"><button class="btn subscribe-btn w-75 text-white fw-bold">Subscribe</button></a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col col-sm-6 col-lg-4">
+
+      
+      <div class="list-card card px-2 py-4" style="width: 18rem;">
+
+        <div class="card-body">
+          <div class="card-title list-title fw-bold">Premium</div>
+          <div class="list-price fw-bold">$29.99 <span class="fs-6">Per Month</span></div>
+        </div>
+
+        <div class="mx-3">
+          <ul class="list-group list-group-flush list-area">
+            <li class="list-group-item fw-bold">15 Visualize/Day</li>
+            <li class="list-group-item fw-bold">No Watermark</li>
+            <li class="list-group-item fw-bold">Download 1080p Picture</li>
+            <li class="list-group-item fw-bold">Using CSV, XLSX & JSON File</li>
+            <li class="list-group-item fw-bold">Monthly Subscription</li>
+          </ul>
+          <div class="subscribe my-3">
+            <a href="{% url 'charge' %}"><button class="btn subscribe-btn w-75 text-white fw-bold">Subscribe</button></a>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+
+</div>
+<br>
+
+{% endblock content %}

@@ -1,0 +1,126 @@
+{% load static %}
+{% block content %}
+
+<style>
+    body {
+    background: linear-gradient(90deg, #145889 0%, #4e8ac2 100%)
+}
+
+.container {
+    background-color: white;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .2);
+    margin-bottom: 50px
+}
+
+.title {
+    font-size: 25px;
+    font-weight: 100
+}
+
+.icon {
+    position: relative;
+    bottom: 11px
+}
+
+.mt-100 {
+    margin-top: 100px
+}
+
+.profile img {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%
+}
+
+.card {
+    border-radius: 15px;
+    margin-left: 30px;
+    margin-right: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2)
+}
+
+.card-body {
+    position: relative;
+    bottom: 35px
+}
+
+.btn {
+    margin-top: 36px;
+    margin-bottom: 45px;
+    background-color: #AB47BC;
+    border: none;
+    color: #fff
+}
+
+.btn:hover {
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    color: #fff
+}
+
+.header {
+    padding-top: 40px
+}
+</style>
+
+
+<div class='container mx-auto mt-5 col-md-10 mt-100'>
+    <div class="header">
+        <div class="title">Our Expert Team</div>
+    </div>
+    <div class="row justify-content-center pb-5">
+        <div class="card col-md-3 mt-100">
+            <div class="card-content">
+                <div class="card-body p-0">
+                    <div class="profile"> <img src="{% static 'assets/blog/images/img-5.png' %}"> </div>
+                    <div class="card-title mt-4"> Paul Zamor<br /> <small>CEO/Co-founder at Developers World LLC</small> </div>
+                    <div class="card-subtitle">
+                        <p> <small class="text-muted"> CEO oversees, sets vision; co-founder co-starts, .&nbsp; shares
+                            responsibility, drives success. </small> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card col-md-3 mt-100">
+            <div class="card-content">
+                <div class="card-body p-0">
+                    <div class="profile"> <img src="{% static 'assets/blog/images/img-k.png' %}"> </div>
+                    <div class="card-title mt-4"> Kerby Edme<br /> <small>CIO/Co-founder at Developers World LLC</small> </div>
+                    <div class="card-subtitle">
+                        <p> <small class="text-muted"> I really enjoyed working with them, they are Group of Professionals and they know what they're Doing </small> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card col-md-3 mt-100">
+            <div class="card-content">
+                <div class="card-body p-0">
+                    <div class="profile"> <img src="{% static 'assets/blog/images/img-me.png' %}"> </div>
+                    <div class="card-title mt-4"> Parvez Mosaraf<br /> <small>Lead Developer at Developers World LLC</small> </div>
+                    <div class="card-subtitle">
+                        <p> <small class="text-muted"> A developer can do anything with his coding knowledge&nbsp; and also a
+                            developer can make your idea in real. </small> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card col-md-3 mt-100">
+            <div class="card-content">
+                <div class="card-body p-0">
+                    <div class="profile"> <img src="{% static 'assets/blog/images/img-l.png' %}"> </div>
+                    <div class="card-title mt-4"> Steve Goimbert<br /> <small>Marketing at Developers World LLC</small> </div>
+                    <div class="card-subtitle">
+                        <p> <small class="text-muted"> Marketing is one of the crucial step for&nbsp; any kind of startup
+                            company and make the company well knowned. </small> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>   
+
+{% endblock content %}
+
